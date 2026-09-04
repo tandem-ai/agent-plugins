@@ -1,6 +1,10 @@
 {
   "name": "tandem",
-  "owner": { "name": "Tandem", "url": "https://www.usetandem.ai" },
+  "description": "Tandem for AI assistants: the Tandem MCP connector plus skills to start, sync and set up customer project work.",
+  "owner": {
+    "name": "Tandem",
+    "url": "https://www.usetandem.ai"
+  },
   "plugins": [
     {
       "name": "tandem",
@@ -8,7 +12,12 @@
       "version": "0.1.0",
       "description": "Tandem MCP connector + skills: /tandem:start, /tandem:sync, /tandem:setup.",
       "category": "productivity",
-      "tags": ["tandem", "customer-projects", "implementation", "mcp"]
+      "tags": [
+        "tandem",
+        "customer-projects",
+        "implementation",
+        "mcp"
+      ]
     }
   ]
 }
