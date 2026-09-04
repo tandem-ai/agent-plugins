@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "tandem": {
+      "serverUrl": "https://api.usetandem.ai/mcp"
+    }
+  }
+}

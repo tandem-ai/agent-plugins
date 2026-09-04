@@ -1,0 +1,6 @@
+{
+  "name": "tandem",
+  "displayName": "Tandem",
+  "version": "0.1.0",
+  "description": "Tandem MCP connector + skills to start a client work session with project context, sync the session back into the project, and onboard up to a first project."
+}

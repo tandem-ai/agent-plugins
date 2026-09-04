@@ -1,0 +1,11 @@
+{
+  "name": "tandem",
+  "plugins": [
+    {
+      "name": "tandem",
+      "source": "./",
+      "version": "0.1.0",
+      "description": "Tandem MCP connector + skills (start, sync, setup)."
+    }
+  ]
+}
