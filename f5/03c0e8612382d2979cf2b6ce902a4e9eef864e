@@ -1,0 +1,59 @@
+.agents/skills/setup/SKILL.md
+  s_79978a14270e1d::t_b93394222e6ccf 31
+.agents/skills/setup/references/providers.md
+  s_79978a14270e1d::t_5fef98d3236cbb 48
+.agents/skills/setup/references/tandem-mcp.md
+  s_79978a14270e1d::t_3a7b354bac884a 48,71-76
+.agents/skills/start/references/tandem-mcp.md
+  s_79978a14270e1d::t_919643ffcce2dc 48,71-76
+.agents/skills/sync/references/tandem-mcp.md
+  s_79978a14270e1d::t_831783c7891ecb 48,71-76
+reference/tandem-mcp.md
+  s_79978a14270e1d::t_9afae089ce85a5 48,71-76
+skills/setup/SKILL.md
+  s_79978a14270e1d::t_02abb5a1c980c0 31
+skills/setup/references/providers.md
+  s_79978a14270e1d::t_b070b046fbcae9 48
+skills/setup/references/tandem-mcp.md
+  s_79978a14270e1d::t_f44136173edfc4 48,71-76
+skills/start/references/tandem-mcp.md
+  s_79978a14270e1d::t_6480b2c7e9d95d 48,71-76
+skills/sync/references/tandem-mcp.md
+  s_79978a14270e1d::t_c805c1e89c4c69 48,71-76
+variants/local/skills/setup/SKILL.md
+  s_79978a14270e1d::t_99bd82be8820d9 31
+variants/local/skills/setup/references/providers.md
+  s_79978a14270e1d::t_6bd4a60969cf68 48
+variants/local/skills/setup/references/tandem-mcp.md
+  s_79978a14270e1d::t_e2fa83c372ea07 48,71-76
+variants/local/skills/start/references/tandem-mcp.md
+  s_79978a14270e1d::t_784fd6871ffab8 48,71-76
+variants/local/skills/sync/references/tandem-mcp.md
+  s_79978a14270e1d::t_16fa7588cc2d7f 48,71-76
+variants/stage/skills/setup/SKILL.md
+  s_79978a14270e1d::t_9f2bbe2366cf97 31
+variants/stage/skills/setup/references/providers.md
+  s_79978a14270e1d::t_8c5a133f658333 48
+variants/stage/skills/setup/references/tandem-mcp.md
+  s_79978a14270e1d::t_675f7470f7792d 48,71-76
+variants/stage/skills/start/references/tandem-mcp.md
+  s_79978a14270e1d::t_f7b0461665dd42 48,71-76
+variants/stage/skills/sync/references/tandem-mcp.md
+  s_79978a14270e1d::t_5f65f825c4ad12 48,71-76
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "f503c0e8612382d2979cf2b6ce902a4e9eef864e",
+  "prompts": {},
+  "sessions": {
+    "s_79978a14270e1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "701a0dde-a46a-4d76-b8b2-7c79789b5ce8",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
