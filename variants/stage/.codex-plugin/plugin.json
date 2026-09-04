@@ -1,0 +1,12 @@
+{
+  "name": "tandem-stage",
+  "version": "0.1.0",
+  "description": "Tandem in your AI assistant: the Tandem MCP connector plus skills to start a client work session with full project context, sync the session back into the project, and onboard up to a first project.",
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Tandem (stage)",
+    "longDescription": "Tandem is the shared memory of a customer project: people, decisions, plan, conversations, time. This plugin brings it into your assistant. /start loads where the project stands and guides the work with continuous checks against what the customer validated; /sync records the session back into the project (brief, tasks, time); /setup onboards a new user up to a first project with the sources they choose.",
+    "category": "productivity"
+  }
+}
