@@ -1,0 +1,19 @@
+.claude-plugin/marketplace.json
+  s_79978a14270e1d::t_be3792763b4e75 3-7,15-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "67999a922c525db8ebf973c304cb886ccb0100bb",
+  "prompts": {},
+  "sessions": {
+    "s_79978a14270e1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "701a0dde-a46a-4d76-b8b2-7c79789b5ce8",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
