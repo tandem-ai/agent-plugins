@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "tandem": {
+      "url": "https://api.stage.usetandem.ai/mcp"
+    }
+  }
+}

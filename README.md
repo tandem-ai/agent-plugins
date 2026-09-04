@@ -106,6 +106,25 @@ plugin.json mcp_config.json     Antigravity plugin
 
 A repository or folder can be linked to a Tandem project with a `.tandem.json` file at its root (`setup` writes it with the user's agreement). `start` reads it to load the right project without asking; `sync` writes `last_sync`; the Claude Code hooks announce the project at session start and, when `sync` is `auto`, ask the assistant to sync before the session ends.
 
+## Environments
+
+The repository root is the **production** plugin (`api.usetandem.ai`). `npm run build` also generates full variants under `variants/`:
+
+| Variant | Plugin name | Connector | App links |
+|---|---|---|---|
+| `variants/stage` | `tandem-stage` | `https://api.stage.usetandem.ai/mcp` | `app.stage.usetandem.ai` |
+| `variants/local` | `tandem-local` | `https://api.usetandem.com/mcp` (local proxy) | `app.usetandem.com` |
+
+They are listed in the marketplaces as `tandem-stage` and `tandem-local`, for internal testing only. The plugin name differs so a tester can install a variant beside production without two servers competing for the same job:
+
+```
+/plugin marketplace add /Users/<you>/Workspace/Tandem/agent-plugins   # local checkout, or the GitHub repo
+/plugin install tandem-stage@tandem
+/mcp   # authenticate tandem-stage against stage
+```
+
+Skills never hardcode an environment: they follow the connector they are installed with, and app links are rewritten per variant at build time. Never edit `variants/` by hand.
+
 ## Develop
 
 ```
