@@ -45,7 +45,7 @@ Several capability `usage` texts mention cards (`mode:'shown'`, "the card collec
 
 - Present choices in prose (numbered lists) and pass the user's answer back yourself.
 - To attach sources to a project, call `list_integrations` with `include_attach_scope: true`, present `attachable` and each source's `scope_choices` as a list, and pass the resulting `integrations` array to `create_project` or `update_project`.
-- `connect_integration` cannot connect anything from here. It only returns what could be connected (`providers[]` with `integration_key`, `already_connected`, `account.slug`). Send the user to the app to authorize: `https://app.usetandem.com/<account.slug>/integrations?integration=<integration_key>`.
+- `connect_integration` cannot connect anything from here. It only returns what could be connected (`providers[]` with `integration_key`, `already_connected`, `account.slug`). Send the user to the app's Integrations page to authorize (see "Links to the app").
 
 ## Workspace mapping (`.tandem.json`)
 
@@ -68,4 +68,9 @@ Look for it (cwd, then parents up to the git root) before asking the user which 
 
 ## Links to the app
 
-Project page: `https://app.usetandem.com/<account.slug>/projects/<implementation_id>` when a result carries `coordinates.url`, prefer that exact URL. Integrations: `https://app.usetandem.com/<account.slug>/integrations`.
+Never compose an app hostname yourself: the same skill runs against production, stage and local servers.
+
+1. Every read that names a project or a task returns `coordinates.url` (project page, task page). Use it verbatim.
+2. `connect_integration` returns `integrations_url` per provider when the server provides it. Use it verbatim.
+3. Otherwise take the app base URL from the server's `instructions` received at connection time (the line starting with `App:`), and build `<app>/<account.slug>/integrations?integration=<integration_key>` or `<app>/<account.slug>/projects/<implementation_id>`.
+4. If none of these is available, ask the user for the address they use to open Tandem and build the link from it.

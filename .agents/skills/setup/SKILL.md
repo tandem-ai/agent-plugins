@@ -28,7 +28,7 @@ For each provider the user wants, one at a time:
 
 1. Say why it helps for this customer, in one line ("decisions happen in Slack; connecting it lets Tandem follow them").
 2. Give the recipe from `references/providers.md`: for OAuth tools, what they will authorize and who can (workspace admin, approval); for API-key tools, the exact page where the key is created, the plan it requires, the key type or scope to pick.
-3. Send the link `https://app.usetandem.ai/<account.slug>/integrations?integration=<integration_key>` and say the key or authorization is entered there, never in this chat.
+3. Send the provider's Integrations link (`integrations_url` from `connect_integration`, or built as described in `references/tandem-mcp.md` → Links to the app) and say the key or authorization is entered there, never in this chat.
 4. When the user says it is done, call `list_integrations` and confirm the provider now appears in `connections`. If not, say what to check and offer to continue with the next one.
 
 The user may skip any provider; everything remains addable later from `start`. Done when every chosen provider is connected or explicitly skipped.
