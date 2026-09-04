@@ -1,0 +1,43 @@
+.scratch/mcp-plugin-skills/issues/00-catalogue-coverage.md
+  s_79978a14270e1d::t_19ebfafc944445 1-19
+.scratch/mcp-plugin-skills/issues/00-platform-packaging.md
+  s_79978a14270e1d::t_5eb8b8ffc1b90a 1-19
+.scratch/mcp-plugin-skills/issues/01-licence-and-public-repo.md
+  s_79978a14270e1d::t_e49d3cd3799170 1-7
+.scratch/mcp-plugin-skills/issues/02-sync-trigger-policy.md
+  s_79978a14270e1d::t_54a3fd4763d1dc 1-7
+.scratch/mcp-plugin-skills/issues/03-session-record-format.md
+  s_79978a14270e1d::t_3e542412a77603 1-7
+.scratch/mcp-plugin-skills/issues/04-connect-link-capability.md
+  s_79978a14270e1d::t_d20cd8bea79169 1-7
+.scratch/mcp-plugin-skills/issues/05-workspace-mapping-file.md
+  s_79978a14270e1d::t_ddec89c34979f9 1-7
+.scratch/mcp-plugin-skills/issues/06-hooks-on-other-clients.md
+  s_79978a14270e1d::t_0dac18b96849f8 1-7
+.scratch/mcp-plugin-skills/issues/07-naming-and-language.md
+  s_79978a14270e1d::t_79616841e7a4bd 1-7
+.scratch/mcp-plugin-skills/issues/08-validate-manifests.md
+  s_79978a14270e1d::t_c628238dfa7114 1-8
+.scratch/mcp-plugin-skills/issues/09-cursor-deeplink-remote-url.md
+  s_79978a14270e1d::t_de26efa226a462 1-7
+.scratch/mcp-plugin-skills/issues/10-start-without-a-plan.md
+  s_79978a14270e1d::t_7fad292a274a9f 1-7
+.scratch/mcp-plugin-skills/map.md
+  s_79978a14270e1d::t_911483081bfbaa 1-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "056ad8c661e1179ad96a5af7318311c7aded4801",
+  "prompts": {},
+  "sessions": {
+    "s_79978a14270e1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "701a0dde-a46a-4d76-b8b2-7c79789b5ce8",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
