@@ -1,0 +1,117 @@
+.agents/plugins/marketplace.json
+  s_79978a14270e1d::t_916377273cf579 9-20
+.claude-plugin/marketplace.json
+  s_79978a14270e1d::t_d7678285a58770 21-44
+README.md
+  s_79978a14270e1d::t_5378936b1ef15f 109-127
+scripts/build.mjs
+  s_79978a14270e1d::t_049ca23338f2b8 59-106
+variants/local/.claude-plugin/plugin.json
+  s_79978a14270e1d::t_d03b1d788493e7 1-12
+variants/local/.codex-plugin/plugin.json
+  s_79978a14270e1d::t_4a5e3288dc04e5 1-12
+variants/local/.cursor-plugin/plugin.json
+  s_79978a14270e1d::t_9ded1755584084 1-6
+variants/local/.cursor/mcp.json
+  s_79978a14270e1d::t_80ffada103ad34 1-7
+variants/local/.mcp.json
+  s_79978a14270e1d::t_7f5e86d2b7e3c7 1-8
+variants/local/GEMINI.md
+  s_79978a14270e1d::t_73fcabd091a745 1-5
+variants/local/README.md
+  s_79978a14270e1d::t_1c4b1a40a236cf 1-3
+variants/local/gemini-extension.json
+  s_79978a14270e1d::t_6a2c4c99bc8fc1 1-11
+variants/local/hooks/hooks.json
+  s_79978a14270e1d::t_f1d25cd9bd9f2e 1-27
+variants/local/mcp_config.json
+  s_79978a14270e1d::t_b2bbfa8e8ff7d2 1-7
+variants/local/plugin.json
+  s_79978a14270e1d::t_efe9087c4796f1 1-4
+variants/local/scripts/build.mjs
+  s_79978a14270e1d::t_718b8b3dca7db5 1-108
+variants/local/scripts/session-context.sh
+  s_79978a14270e1d::t_bc3a9f0c039def 1-27
+variants/local/scripts/stop-sync-guard.sh
+  s_79978a14270e1d::t_e823607a1dfc6b 1-30
+variants/local/scripts/tandem-mapping.py
+  s_79978a14270e1d::t_75473bc0340e09 1-42
+variants/local/skills/setup/SKILL.md
+  s_79978a14270e1d::t_21c8208f12a549 1-57
+variants/local/skills/setup/references/providers.md
+  s_79978a14270e1d::t_d882122786eddd 1-48
+variants/local/skills/setup/references/tandem-mcp.md
+  s_79978a14270e1d::t_aa8dd33515eb0d 1-71
+variants/local/skills/start/SKILL.md
+  s_79978a14270e1d::t_bacbfc1d6fbdef 1-69
+variants/local/skills/start/references/tandem-mcp.md
+  s_79978a14270e1d::t_f36e9ed0a3af26 1-71
+variants/local/skills/sync/SKILL.md
+  s_79978a14270e1d::t_569226ad85b774 1-61
+variants/local/skills/sync/references/session-record.md
+  s_79978a14270e1d::t_b06b76408d846e 1-30
+variants/local/skills/sync/references/tandem-mcp.md
+  s_79978a14270e1d::t_602ed310d4b3aa 1-71
+variants/stage/.claude-plugin/plugin.json
+  s_79978a14270e1d::t_43f2e2b6210776 1-12
+variants/stage/.codex-plugin/plugin.json
+  s_79978a14270e1d::t_a9c09007cae036 1-12
+variants/stage/.cursor-plugin/plugin.json
+  s_79978a14270e1d::t_b800676e71149c 1-6
+variants/stage/.cursor/mcp.json
+  s_79978a14270e1d::t_b19af555787746 1-7
+variants/stage/.mcp.json
+  s_79978a14270e1d::t_f8ceca7aaf2838 1-8
+variants/stage/GEMINI.md
+  s_79978a14270e1d::t_71e31be6683aee 1-5
+variants/stage/README.md
+  s_79978a14270e1d::t_6523b467f5cddf 1-3
+variants/stage/gemini-extension.json
+  s_79978a14270e1d::t_99dfb5353f30f8 1-11
+variants/stage/hooks/hooks.json
+  s_79978a14270e1d::t_303e949ed47620 1-27
+variants/stage/mcp_config.json
+  s_79978a14270e1d::t_38bb30a9b78fe5 1-7
+variants/stage/plugin.json
+  s_79978a14270e1d::t_b63fba162e3939 1-4
+variants/stage/scripts/build.mjs
+  s_79978a14270e1d::t_49b9d12b07d39b 1-108
+variants/stage/scripts/session-context.sh
+  s_79978a14270e1d::t_244f90479895bd 1-27
+variants/stage/scripts/stop-sync-guard.sh
+  s_79978a14270e1d::t_c66df275527920 1-30
+variants/stage/scripts/tandem-mapping.py
+  s_79978a14270e1d::t_35475101f902fe 1-42
+variants/stage/skills/setup/SKILL.md
+  s_79978a14270e1d::t_6137c79f964400 1-57
+variants/stage/skills/setup/references/providers.md
+  s_79978a14270e1d::t_497d911a1e49a0 1-48
+variants/stage/skills/setup/references/tandem-mcp.md
+  s_79978a14270e1d::t_fc7638758c98e6 1-71
+variants/stage/skills/start/SKILL.md
+  s_79978a14270e1d::t_5b96052e238fdd 1-69
+variants/stage/skills/start/references/tandem-mcp.md
+  s_79978a14270e1d::t_c16cabe359d806 1-71
+variants/stage/skills/sync/SKILL.md
+  s_79978a14270e1d::t_38106d9a22ce86 1-61
+variants/stage/skills/sync/references/session-record.md
+  s_79978a14270e1d::t_911885deab1088 1-30
+variants/stage/skills/sync/references/tandem-mcp.md
+  s_79978a14270e1d::t_c7fa74c2d9a0c4 1-71
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "d92d7182781ba316de3429965819f7720fdb7ce7",
+  "prompts": {},
+  "sessions": {
+    "s_79978a14270e1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "701a0dde-a46a-4d76-b8b2-7c79789b5ce8",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
