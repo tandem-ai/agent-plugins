@@ -45,4 +45,4 @@ Steps to give, in this order: open the provider page above → create the key wi
 
 ## When it fails
 
-Point the user to the Integrations page in the app (`https://app.usetandem.ai/<account.slug>/integrations`), where a failed connection can be reconnected, and continue with the next provider.
+Point the user to the Integrations page in the app (the base of any `integrations_url`, or `<app>/<account.slug>/integrations`), where a failed connection can be reconnected, and continue with the next provider.
