@@ -1,7 +1,7 @@
 {
   "name": "tandem-stage",
   "displayName": "Tandem (stage)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tandem in your AI assistant: the Tandem MCP connector plus skills to start a client work session with full project context, sync the session back into the project, and onboard up to a first project.",
   "author": {
     "name": "Tandem",

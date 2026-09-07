@@ -9,7 +9,7 @@
     {
       "name": "tandem",
       "source": "./",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Tandem MCP connector + skills: /tandem:start, /tandem:sync, /tandem:setup.",
       "category": "productivity",
       "tags": [
@@ -22,7 +22,7 @@
     {
       "name": "tandem-stage",
       "source": "./variants/stage",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Internal: Tandem plugin against the stage environment.",
       "category": "productivity",
       "tags": [
@@ -34,7 +34,7 @@
     {
       "name": "tandem-local",
       "source": "./variants/local",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Internal: Tandem plugin against the local environment.",
       "category": "productivity",
       "tags": [
