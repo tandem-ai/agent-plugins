@@ -1,0 +1,47 @@
+.agents/plugins/marketplace.json
+  s_79978a14270e1d::t_4e1e20d9f7819e 7,13,19
+.claude-plugin/marketplace.json
+  s_79978a14270e1d::t_e4e224a50a6857 12,25,37
+.claude-plugin/plugin.json
+  s_79978a14270e1d::t_011704710360d8 4
+.codex-plugin/plugin.json
+  s_79978a14270e1d::t_4a709067c54ad6 3
+.cursor-plugin/plugin.json
+  s_79978a14270e1d::t_a59ca00d36c9bb 4
+gemini-extension.json
+  s_79978a14270e1d::t_24008d5b22f616 3
+package.json
+  s_79978a14270e1d::t_27cd20e3be770a 3
+variants/local/.claude-plugin/plugin.json
+  s_79978a14270e1d::t_50b4f18f062783 4
+variants/local/.codex-plugin/plugin.json
+  s_79978a14270e1d::t_92fe11a9d2112e 3
+variants/local/.cursor-plugin/plugin.json
+  s_79978a14270e1d::t_618d9a7bf9bb1d 4
+variants/local/gemini-extension.json
+  s_79978a14270e1d::t_7dbf00b4e5889b 3
+variants/stage/.claude-plugin/plugin.json
+  s_79978a14270e1d::t_445d835aacfd65 4
+variants/stage/.codex-plugin/plugin.json
+  s_79978a14270e1d::t_be5fd86a876639 3
+variants/stage/.cursor-plugin/plugin.json
+  s_79978a14270e1d::t_b81be44bd68a04 4
+variants/stage/gemini-extension.json
+  s_79978a14270e1d::t_5b94451bd1e3f1 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "2e47ca6880ddfc32f68804ebcf22b00763fcb65c",
+  "prompts": {},
+  "sessions": {
+    "s_79978a14270e1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "701a0dde-a46a-4d76-b8b2-7c79789b5ce8",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
