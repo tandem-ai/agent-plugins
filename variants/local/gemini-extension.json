@@ -1,6 +1,6 @@
 {
   "name": "tandem-local",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tandem MCP connector + skills (start, sync, setup) for customer implementation work.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
