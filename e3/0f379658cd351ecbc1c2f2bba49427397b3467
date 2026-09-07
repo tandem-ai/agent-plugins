@@ -1,0 +1,23 @@
+.claude-plugin/plugin.json
+  s_79978a14270e1d::t_ec51632433c186 6-9,12-18
+variants/local/.claude-plugin/plugin.json
+  s_79978a14270e1d::t_4c1095177dae22 6-9,12-18
+variants/stage/.claude-plugin/plugin.json
+  s_79978a14270e1d::t_c0050b774d04c7 6-9,12-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "e30f379658cd351ecbc1c2f2bba49427397b3467",
+  "prompts": {},
+  "sessions": {
+    "s_79978a14270e1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "701a0dde-a46a-4d76-b8b2-7c79789b5ce8",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
