@@ -3,10 +3,17 @@
   "displayName": "Tandem (local)",
   "version": "0.1.0",
   "description": "Tandem in your AI assistant: the Tandem MCP connector plus skills to start a client work session with full project context, sync the session back into the project, and onboard up to a first project.",
-  "author": { "name": "Tandem", "url": "https://www.usetandem.ai" },
+  "author": {
+    "name": "Tandem",
+    "url": "https://www.usetandem.ai"
+  },
   "homepage": "https://www.usetandem.ai",
   "repository": "https://github.com/tandem-ai/agent-plugins",
-  "keywords": ["tandem", "implementation", "customer projects", "fde", "mcp"],
-  "mcpServers": "./.mcp.json",
-  "hooks": "./hooks/hooks.json"
+  "keywords": [
+    "tandem",
+    "implementation",
+    "customer projects",
+    "fde",
+    "mcp"
+  ]
 }
