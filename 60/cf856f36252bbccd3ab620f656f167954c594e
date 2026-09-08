@@ -1,0 +1,25 @@
+skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_5c051077ea6a4f 43-46
+.agents/skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_b6b4debd9605d7 43-46
+variants/local/skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_22f8cac445ffa3 43-46
+variants/stage/skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_79be75c1f5c6fb 43-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "60cf856f36252bbccd3ab620f656f167954c594e",
+  "prompts": {},
+  "sessions": {
+    "s_9bfd506c34d5a1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7921f97f-7d55-42db-bc81-b2870e3bb740",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
