@@ -9,9 +9,9 @@ The session becomes a document on the project: a teammate reads it in the app li
 
 Read `references/tandem-mcp.md` first. What the document must carry is in `references/session-record.md`; its shape is yours.
 
-## 1. Split by customer, then summarise
+## 1. Split by project, then summarise
 
-You are the assistant that ran this session, so you hold the whole conversation. First decide how many projects it touched. The unit is the **customer**: a session that moved from one customer's work to another's is two records. One customer's work across several repositories, tools or tickets is one record. Internal work with no customer goes on the project the user names for it. One record is the common case; split only when the conversation plainly changed customer.
+You are the assistant that ran this session, so you hold the whole conversation. First decide how many projects it touched: **one record per project**. A change of customer is always a change of project; a change of project for the same customer is one too when the conversation names both projects. One project's work across several repositories, tools or tickets is one record. Internal work with no customer goes on the project the user names for it. One record is the common case; split only when the conversation plainly moved to other work.
 
 Then write each record directly, from your own context, covering what `references/session-record.md` lists, in the shape that fits this session: a narrative for a debugging session, decisions and reasons for a design session, a list of what shipped for a delivery session. Keep the details that matter to the work (a root cause, a rejected option and why, a number that changes a plan); drop what only the transcript needed. Write it for a teammate who was not there: facts, past tense, complete sentences.
 
@@ -21,10 +21,10 @@ Done when every record is written and each would stand on its own.
 
 ## 2. Resolve the projects and confirm
 
-For each record, look its project up with `list_projects` (`q` = the customer or project name the conversation used; retry with the customer name alone before concluding). With several accounts, let the server's account choices settle the account first. Each record ends in one of three states:
+For each record, look its project up with `list_projects` (`q` = the project name when the conversation gave one, else the customer name; retry with the customer name alone before concluding). With several accounts, let the server's account choices settle the account first. Each record ends in one of three states:
 
 - **Found**: one project matches. It lands there.
-- **Ambiguous**: several match. Name them and let the user pick.
+- **Ambiguous**: several match, typically several projects of the same customer. Name them and let the user pick.
 - **Missing**: no project for that customer exists in Tandem yet. The record is kept aside, not dropped.
 
 Show the user, in one message: each found record with its project, each missing one with the sentence "there is no Tandem project for <customer> yet; want me to create it?", and your estimate of the duration from the conversation's timestamps, stated as numbers to confirm ("about 2h10 by the timestamps: 1h30 on Acme, 40 min on Globex, correct?"). A pause with no activity is not work: leave it out and say so when it is large. The user may merge two records, drop one, move one to another project, or correct a duration.
