@@ -10,3 +10,22 @@ This repository ships the Tandem plugin for AI assistants: one MCP connector (`.
 - Writing rules for skills follow the `writing-for-agents` skill of the Tandem platform repository: steps with completion criteria, reference material disclosed behind a file, positive phrasing, no duplication.
 - Verify a change by running `npm run check`, then by reading the skill once as the assistant would, step by step, against the capability contracts in the platform repository (`api/src/app/agent/tools/native/*.ts`).
 - Open decisions live in `.scratch/mcp-plugin-skills/` (wayfinder map, local markdown tracker).
+
+## Environments (internal)
+
+The repository root is the **production** plugin (`api.usetandem.ai`). `npm run build` also generates full variants under `variants/`:
+
+| Variant | Plugin name | Connector |
+|---|---|---|
+| `variants/stage` | `tandem-stage` | `https://api.stage.usetandem.ai/mcp` |
+| `variants/local` | `tandem-local` | `https://api.usetandem.com/mcp` (local proxy) |
+
+They are listed in the marketplaces as `tandem-stage` and `tandem-local`, for internal testing only:
+
+```
+/plugin marketplace add /Users/<you>/Workspace/Tandem/agent-plugins   # local checkout, or the GitHub repo
+/plugin install tandem-stage@tandem
+/mcp   # authenticate tandem-stage against stage
+```
+
+Skills never hardcode an environment: they follow the connector they are installed with and use the links results carry. Never edit `variants/` by hand.

@@ -98,7 +98,6 @@ reference/tandem-mcp.md         how to work with the Tandem MCP (two tools, nami
 gemini-extension.json GEMINI.md Gemini CLI extension
 plugin.json mcp_config.json     Antigravity plugin
 .agents/skills/                 generated mirror of skills/ (Codex, Cursor, Copilot, Antigravity read it)
-variants/                       generated stage and local variants (internal testing)
 ```
 
 No hooks, no background behaviour: every write goes through the user's confirmation in their assistant.
@@ -107,29 +106,10 @@ No hooks, no background behaviour: every write goes through the user's confirmat
 
 `sync` writes a markdown document into the project through the `create_document` capability. Tandem stores it as a real project document, indexes it, and the Tandem copilot retrieves it through project document search when someone asks what was decided or delivered. The document format is `skills/sync/references/session-record.md`.
 
-## Environments
-
-The repository root is the **production** plugin (`api.usetandem.ai`). `npm run build` also generates full variants under `variants/`:
-
-| Variant | Plugin name | Connector |
-|---|---|---|
-| `variants/stage` | `tandem-stage` | `https://api.stage.usetandem.ai/mcp` |
-| `variants/local` | `tandem-local` | `https://api.usetandem.com/mcp` (local proxy) |
-
-They are listed in the marketplaces as `tandem-stage` and `tandem-local`, for internal testing only:
-
-```
-/plugin marketplace add /Users/<you>/Workspace/Tandem/agent-plugins   # local checkout, or the GitHub repo
-/plugin install tandem-stage@tandem
-/mcp   # authenticate tandem-stage against stage
-```
-
-Skills never hardcode an environment: they follow the connector they are installed with and use the links results carry. Never edit `variants/` by hand.
-
 ## Develop
 
 ```
-npm run build   # copies reference/tandem-mcp.md into each skill, mirrors skills/ to .agents/skills/, generates variants/, checks versions
+npm run build   # copies reference/tandem-mcp.md into each skill, mirrors skills/ to .agents/skills/, checks versions
 npm run check   # verifies the generated files are current (CI)
 ```
 
