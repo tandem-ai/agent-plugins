@@ -1,0 +1,43 @@
+.agents/skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_dba71446b7c563 27,31,33
+.agents/skills/setup/references/tandem-mcp.md
+  s_9bfd506c34d5a1::t_b134dd85eb4923 56
+.agents/skills/sync/references/tandem-mcp.md
+  s_9bfd506c34d5a1::t_1cb1a5b9dc59f5 56
+reference/tandem-mcp.md
+  s_9bfd506c34d5a1::t_15127f461c9cf5 56
+skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_1c33a3d0fb7b4a 27,31,33
+skills/setup/references/tandem-mcp.md
+  s_9bfd506c34d5a1::t_daa7f555e40ef8 56
+skills/sync/references/tandem-mcp.md
+  s_9bfd506c34d5a1::t_486e81c75acba7 56
+variants/local/skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_d060e5fc673a00 27,31,33
+variants/local/skills/setup/references/tandem-mcp.md
+  s_9bfd506c34d5a1::t_c7909dccbf2280 56
+variants/local/skills/sync/references/tandem-mcp.md
+  s_9bfd506c34d5a1::t_8a28546e7c7db4 56
+variants/stage/skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_ae8e339d009ced 27,31,33
+variants/stage/skills/setup/references/tandem-mcp.md
+  s_9bfd506c34d5a1::t_7db57777996f5a 56
+variants/stage/skills/sync/references/tandem-mcp.md
+  s_9bfd506c34d5a1::t_92b3a20d3b27cb 56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "be8903fa851451022778a18d4ddc8688f835ec8f",
+  "prompts": {},
+  "sessions": {
+    "s_9bfd506c34d5a1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7921f97f-7d55-42db-bc81-b2870e3bb740",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
