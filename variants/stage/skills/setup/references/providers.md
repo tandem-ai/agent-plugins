@@ -1,6 +1,6 @@
 # Providers — how each one connects
 
-Use with step 3 of the setup skill. Authorization and keys are always entered in the Tandem app (Integrations page), never in the chat. `integration_key` values come from `connect_integration` at run time; do not hardcode them.
+Use with step 4 of the setup skill. Authorization and keys are always entered in the Tandem app (Integrations page), never in the chat. `integration_key` values come from `connect_integration` at run time; do not hardcode them.
 
 ## Which providers answer which need
 
@@ -11,20 +11,22 @@ Use with step 3 of the setup skill. Authorization and keys are always entered in
 | …by email | Gmail |
 | Calls are recorded | The recorder they use: Granola, Grain, Fathom, Avoma, Fireflies, Krisp |
 | Meetings are on Google Calendar | Google Calendar |
-| The plan lives in a tracker | Asana, Jira, Linear, Rocketlane, or Google Sheets |
-| Documents live in Drive or Notion | Google Drive, Notion |
+| The plan lives in a tracker | Asana, Jira, Linear, Rocketlane, or Google Sheets (an import, see the skill's step 3) |
+| Documents live in Drive or Notion | Google Drive, Notion (linked per document, not attached as a source) |
 | The customer's account lives in a CRM | HubSpot |
 | Code is on GitHub | GitHub |
 
-Connecting makes a tool available to the account; it reads nothing until it is attached to a project (step 4).
+Connecting makes a tool available to the account; it reads nothing until it is attached to a project.
 
 ## OAuth providers (authorize in the browser)
+
+Recipe to give: open the Tandem Integrations link → **Connect** → the provider's consent screen opens → sign in and accept → back in Tandem the connection appears under the provider. There is no field to fill.
 
 | Provider | What the user authorizes | Who can | After connecting |
 |---|---|---|---|
 | Slack | Tandem's Slack app in their workspace | A workspace admin, or a member if the workspace allows app installs; otherwise the request goes to admins for approval | Pick channels to attach; the Tandem bot must be a member of a public channel (the skill can add it); private channels need `/invite @Tandem` |
 | Microsoft Teams | Tandem in their Microsoft 365 tenant | The user; some tenants require admin consent | Pick teams/channels |
-| Gmail, Google Calendar, Google Drive, Google Sheets | One Google sign-in, the scopes of the tool chosen | The user, with their Google account | Gmail and Calendar filter by the customer's domain; Drive documents are linked per document |
+| Gmail, Google Calendar, Google Drive, Google Sheets | One Google sign-in, the scopes of the tool chosen | The user, with their own Google account | Gmail and Calendar filter by the customer's domain; Drive documents are linked per document |
 | Notion | The pages or databases they select in Notion's consent screen | The user | Documents are linked per page; a Notion database can be imported as the plan |
 | HubSpot | Their HubSpot portal | Portal admin or a user with app-install rights | Deals and contacts are read per customer |
 | Linear, Asana, Jira, Rocketlane | Their workspace or site | The user | The project is imported from the tracker with its tasks and kept synced |
@@ -33,15 +35,15 @@ Connecting makes a tool available to the account; it reads nothing until it is a
 
 ## API-key providers (create the key at the provider, paste it in the Tandem form)
 
+Give the exact page, the plan, and the scope, in this order: open the key page → create the key with the scope named → open the Tandem Integrations link → paste the key in the form → say "done".
+
 | Provider | Where the key is created | Plan and scope to know |
 |---|---|---|
-| Granola | Granola → workspace settings → API keys (`grn_…`) — https://docs.granola.ai/help-center/sharing/integrations/granola-api | Business or Enterprise plan. Key scope "Personal notes" or "Public notes" decides which meetings Tandem can read. Only notes with a generated summary and transcript are returned. |
-| Grain | Grain Public API — https://developers.grain.com/ | Access token created from the user's Grain settings; the provider page states the plan requirement. |
-| Fathom | Fathom API — https://developers.fathom.ai/ | API key created from Fathom settings; the provider page states the plan requirement. |
-| Avoma | Avoma API — https://dev.avoma.com/ | API key from Avoma admin settings. |
-| Fireflies | Fireflies API — https://docs.fireflies.ai/ | API key created from Fireflies settings (Integrations → Fireflies API). |
-
-Steps to give, in this order: open the provider page above → create the key with the scope named here → open the Tandem link the skill sends → paste the key in the form → come back and say "done".
+| Granola | Granola **desktop app** → Settings → Connectors → API keys → Create new key. No web page for it. Docs: https://docs.granola.ai/help-center/sharing/integrations/granola-api | Business or Enterprise plan. Scope **Personal notes** (notes they own or were shared) or **Public notes** (workspace-visible notes) decides which meetings Tandem reads. Only notes with a generated summary and transcript come through. |
+| Grain | https://grain.com/app/settings/integrations?tab=api → Personal access token | A personal token reads the user's own recordings; a workspace token needs workspace permissions. |
+| Fathom | https://fathom.video/customize#api-access-header (User Settings → API Access) → Generate API key | Reads the recordings of the user who created the key. |
+| Avoma | Avoma → Settings → Integrations → API. Docs: https://dev.avoma.com/ | Admin role in Avoma. |
+| Fireflies | https://app.fireflies.ai/integrations/custom/fireflies (Integrations → Fireflies API) → copy the API key | Reads the meetings of the user who owns the key. |
 
 ## When it fails
 
