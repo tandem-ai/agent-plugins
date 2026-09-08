@@ -24,13 +24,13 @@ Recipe to give: open the Tandem Integrations link → **Connect** → the provid
 
 | Provider | What the user authorizes | Who can | After connecting |
 |---|---|---|---|
-| Slack | Tandem's Slack app in their workspace | A workspace admin, or a member if the workspace allows app installs; otherwise the request goes to admins for approval | Pick channels to attach; the Tandem bot must be a member of a public channel (the skill can add it); private channels need `/invite @Tandem` |
+| Slack | Tandem's Slack app in their workspace | Any member by default. When the workspace requires approved apps, the install becomes a request to the workspace owners or app managers, and the user waits for it | Pick channels to attach; the Tandem bot must be a member of a public channel (the skill can add it); private channels need `/invite @Tandem` |
 | Microsoft Teams | Tandem in their Microsoft 365 tenant | The user; some tenants require admin consent | Pick teams/channels |
 | Gmail, Google Calendar, Google Drive, Google Sheets | One Google sign-in, the scopes of the tool chosen | The user, with their own Google account | Gmail and Calendar filter by the customer's domain; Drive documents are linked per document |
 | Notion | The pages or databases they select in Notion's consent screen | The user | Documents are linked per page; a Notion database can be imported as the plan |
-| HubSpot | Their HubSpot portal | Portal admin or a user with app-install rights | Deals and contacts are read per customer |
+| HubSpot | Their HubSpot portal | A Super Admin, or a user with the App Marketplace Access permission | Deals and contacts are read per customer |
 | Linear, Asana, Jira, Rocketlane | Their workspace or site | The user | The project is imported from the tracker with its tasks and kept synced |
-| GitHub | The Tandem GitHub App on the organization or selected repositories | An org owner, or a repo admin for personal repos | Pick repositories to attach |
+| GitHub | The Tandem GitHub App on the organization or selected repositories | An org owner. A repo admin can install it on the repositories they admin unless the org restricts that; anyone on their own personal account | Pick repositories to attach |
 | Krisp | Krisp's MCP server, OAuth | The user | Call recordings flow in |
 
 ## API-key providers (create the key at the provider, paste it in the Tandem form)
