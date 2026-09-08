@@ -1,0 +1,25 @@
+.agents/skills/sync/SKILL.md
+  s_9bfd506c34d5a1::t_bd3cf9b4bb0395 24
+skills/sync/SKILL.md
+  s_9bfd506c34d5a1::t_3e77d01ce3db83 24
+variants/local/skills/sync/SKILL.md
+  s_9bfd506c34d5a1::t_a697a804d2b084 24
+variants/stage/skills/sync/SKILL.md
+  s_9bfd506c34d5a1::t_f9d82a475fb1d5 24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "afa72dc228c1dff9c35e04f7c116c2ce2886ede8",
+  "prompts": {},
+  "sessions": {
+    "s_9bfd506c34d5a1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7921f97f-7d55-42db-bc81-b2870e3bb740",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
