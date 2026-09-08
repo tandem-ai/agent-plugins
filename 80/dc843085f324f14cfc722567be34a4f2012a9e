@@ -1,0 +1,33 @@
+.agents/skills/setup/SKILL.md
+  s_9bfd506c34d5a1::t_bdbdf36dd12795 60
+.agents/skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_dfb169e28773f2 48-87
+skills/setup/SKILL.md
+  s_9bfd506c34d5a1::t_7369398d07bc5e 60
+skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_0b9a974fc17ade 48-87
+variants/local/skills/setup/SKILL.md
+  s_9bfd506c34d5a1::t_265e105aae3648 60
+variants/local/skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_ca804eb27fe62a 48-87
+variants/stage/skills/setup/SKILL.md
+  s_9bfd506c34d5a1::t_651f5fea401827 60
+variants/stage/skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_223ed429132b3b 48-87
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "80dc843085f324f14cfc722567be34a4f2012a9e",
+  "prompts": {},
+  "sessions": {
+    "s_9bfd506c34d5a1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7921f97f-7d55-42db-bc81-b2870e3bb740",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
