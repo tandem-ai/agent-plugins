@@ -40,10 +40,10 @@ Give the exact page, the plan, and the scope, in this order: open the key page �
 | Provider | Where the key is created | Plan and scope to know |
 |---|---|---|
 | Granola | Granola **desktop app** → Settings → Connectors → API keys → Create new key. No web page for it. Docs: https://docs.granola.ai/help-center/sharing/integrations/granola-api | Business or Enterprise plan. Scope **Personal notes** (notes they own or were shared) or **Public notes** (workspace-visible notes) decides which meetings Tandem reads. Only notes with a generated summary and transcript come through. |
-| Grain | https://grain.com/app/settings/integrations?tab=api → Personal access token | A personal token reads the user's own recordings; a workspace token needs workspace permissions. |
-| Fathom | https://fathom.video/customize#api-access-header (User Settings → API Access) → Generate API key | Reads the recordings of the user who created the key. |
-| Avoma | Avoma → Settings → Integrations → API. Docs: https://dev.avoma.com/ | Admin role in Avoma. |
-| Fireflies | https://app.fireflies.ai/integrations/custom/fireflies (Integrations → Fireflies API) → copy the API key | Reads the meetings of the user who owns the key. |
+| Grain | https://grain.com/app/settings/integrations?tab=api (Workspace settings → Integrations → API) → Personal access token. Docs: https://support.grain.com/en/articles/15507288-grain-api | Starter plan or above (not Free). A personal token reads the user's own recordings; a workspace token needs workspace admin rights. |
+| Fathom | https://fathom.video/customize#api-access-header (User Settings → API Access) → Generate API key. Docs: https://developers.fathom.ai/quickstart | No plan restriction documented. Reads the meetings recorded by, or shared with, the user who created the key. |
+| Avoma | Avoma → Settings → Organization → Developer → Add API Key. Docs: https://help.avoma.com/api-integration-for-avoma | Organization admins only. The key is one string `CLIENT_KEY:CLIENT_SECRET`; paste it whole. |
+| Fireflies | https://app.fireflies.ai/integrations/custom/fireflies (Integrations → Fireflies API → Get API Key, or Settings → Developer settings). Docs: https://guide.fireflies.ai/articles/3135274098-how-to-access-the-fireflies-api-key | All plans. Reads the meetings of the user who owns the key. |
 
 ## When it fails
 
