@@ -1,0 +1,35 @@
+skills/setup/SKILL.md
+  s_9bfd506c34d5a1::t_57dd7ba2d4c7a7 3,9,11-13,21-41,43,45,47,49,51,53,55,57,59-61,63,65,67,69,71,73,75
+skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_2c9b4fd47bdb66 3,14-15,19,23-24,29,38-39,42-46
+.agents/skills/setup/SKILL.md
+  s_9bfd506c34d5a1::t_ed2eefcd9e5777 3,9,11-13,21-41,43,45,47,49,51,53,55,57,59-61,63,65,67,69,71,73,75
+.agents/skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_b7f6cf6f7eb185 3,14-15,19,23-24,29,38-39,42-46
+README.md
+  s_9bfd506c34d5a1::t_c60333f28f825f 10
+variants/local/skills/setup/SKILL.md
+  s_9bfd506c34d5a1::t_0453c15559a7d0 3,9,11-13,21-41,43,45,47,49,51,53,55,57,59-61,63,65,67,69,71,73,75
+variants/local/skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_f133cda5b67186 3,14-15,19,23-24,29,38-39,42-46
+variants/stage/skills/setup/SKILL.md
+  s_9bfd506c34d5a1::t_02fae1e496668e 3,9,11-13,21-41,43,45,47,49,51,53,55,57,59-61,63,65,67,69,71,73,75
+variants/stage/skills/setup/references/providers.md
+  s_9bfd506c34d5a1::t_9316d94119f43a 3,14-15,19,23-24,29,38-39,42-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "3df3651959c525842f940d9179ee11780818157c",
+  "prompts": {},
+  "sessions": {
+    "s_9bfd506c34d5a1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7921f97f-7d55-42db-bc81-b2870e3bb740",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
