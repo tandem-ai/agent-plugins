@@ -1,29 +1,19 @@
-# Session document — format
+# Session document — what it carries
 
-The `body` of `create_document`, in markdown. Keep the headings; drop a section only when it is empty. The title is set separately: `Work session — <YYYY-MM-DD> — <topic>`.
+The `body` of `create_document`, in markdown. The title is set separately: `Work session — <YYYY-MM-DD> — <topic>`.
 
-```
-# Work session — <YYYY-MM-DD> — <topic>
+There is no template. Shape the document the way this session reads best: a debugging session is a narrative of what was tried and what was found; a design session is the decisions and their reasons; a delivery session is the list of what shipped. Headings, bullets or prose are yours to choose, and a section that would be empty is not written.
 
-**Context.** <One or two sentences: which customer or project, what the user set out to do, in which assistant, roughly how long.>
+Whatever the shape, a teammate who was not there must be able to find, without reading twice:
 
-## What was done
-- <task or piece of work>: <one line on the outcome>
+- **The situation**: which customer or project, what the user set out to do, in which assistant, roughly how long. One or two sentences, first.
+- **What was done and what came out of it**, with the outcome of each piece, not the activity.
+- **Decisions and why**, including who was involved or which earlier conversation they follow.
+- **What was delivered**, by name: PRs, files, configurations, documents.
+- **What was assumed without the customer's confirmation**, and who should confirm.
+- **Open questions**, and for whom.
+- **Next steps**, with owner and date when known.
 
-## Decisions
-- <decision>, because <reason>. <Who was involved or which earlier conversation it follows, if any.>
+Keep the details that matter to the work: a root cause, a rejected option and the reason, a number that changes a plan, a name the customer used. Drop what only the transcript needed: the order of tool calls, retries, dead ends that taught nothing.
 
-## Delivered
-- <PR / file / configuration / document>, <one line>
-
-## Assumptions to confirm with the customer
-- <assumption> — why it was taken, who should confirm
-
-## Open questions
-- <question> — for <person or team>
-
-## Next steps
-- <next action>, <by whom / when if known>
-```
-
-Facts, past tense, complete sentences, for a teammate who was not there. No code, no transcript, no secrets.
+Facts, past tense, complete sentences. No code, no transcript, no secrets.

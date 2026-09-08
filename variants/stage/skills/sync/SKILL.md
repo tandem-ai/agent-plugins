@@ -7,13 +7,13 @@ description: Save the current work session into its Tandem project as a document
 
 The session becomes a document on the project: a teammate reads it in the app like a call recap, and the Tandem copilot retrieves it when someone asks what was decided or delivered. Nothing runs on its own: the user asks for the sync, reviews the document, and decides what else to write.
 
-Read `references/tandem-mcp.md` first. The document format is `references/session-record.md`.
+Read `references/tandem-mcp.md` first. What the document must carry is in `references/session-record.md`; its shape is yours.
 
 ## 1. Split by customer, then summarise
 
 You are the assistant that ran this session, so you hold the whole conversation. First decide how many projects it touched. The unit is the **customer**: a session that moved from one customer's work to another's is two records. One customer's work across several repositories, tools or tickets is one record. Internal work with no customer goes on the project the user names for it. One record is the common case; split only when the conversation plainly changed customer.
 
-Then summarise each record directly, from your own context, into the format of `references/session-record.md`: what the user set out to do, what was done, decisions and why, deliverables (files, PRs, configurations, documents, by name), assumptions not validated with the customer, open questions, next steps. Write it for a teammate who was not there: facts, past tense, complete sentences.
+Then write each record directly, from your own context, covering what `references/session-record.md` lists, in the shape that fits this session: a narrative for a debugging session, decisions and reasons for a design session, a list of what shipped for a delivery session. Keep the details that matter to the work (a root cause, a rejected option and why, a number that changes a plan); drop what only the transcript needed. Write it for a teammate who was not there: facts, past tense, complete sentences.
 
 Keep out: transcript excerpts, code, file contents, command output, stack traces, secrets (tokens, keys, passwords, connection strings, `.env` values), and any personal data beyond the names the project already knows. Under 15,000 characters per record; a long session gets a tighter summary, never a second record for the same customer.
 
