@@ -21,9 +21,17 @@ Done when every record is written and each would stand on its own.
 
 ## 2. Resolve the projects and confirm
 
-For each record, resolve its project with `list_projects` (`q` = the customer or project name the conversation used). Ask only for a record whose project the conversation never named; with several accounts, let the server's account choices settle the account first.
+For each record, look its project up with `list_projects` (`q` = the customer or project name the conversation used; retry with the customer name alone before concluding). With several accounts, let the server's account choices settle the account first. Each record ends in one of three states:
 
-Show the user, in one message: each record with the project it will land in, and your estimate of the duration from the conversation's timestamps, stated as numbers to confirm ("about 2h10 by the timestamps: 1h30 on Acme, 40 min on Globex, correct?"). A pause with no activity is not work: leave it out and say so when it is large. The user may merge two records, drop one, move one to another project, or correct a duration. Wait for their edits or their go. Done when every record, its project and its duration are approved.
+- **Found**: one project matches. It lands there.
+- **Ambiguous**: several match. Name them and let the user pick.
+- **Missing**: no project for that customer exists in Tandem yet. The record is kept aside, not dropped.
+
+Show the user, in one message: each found record with its project, each missing one with the sentence "there is no Tandem project for <customer> yet; want me to create it?", and your estimate of the duration from the conversation's timestamps, stated as numbers to confirm ("about 2h10 by the timestamps: 1h30 on Acme, 40 min on Globex, correct?"). A pause with no activity is not work: leave it out and say so when it is large. The user may merge two records, drop one, move one to another project, or correct a duration.
+
+For a missing project the user wants created: one `create_project` call with `name` (propose "<customer> — <what the work is>"), `company_query` set to the customer's name (an unknown name creates the company in the same approved change), `integrations: []`, no playbook. The record then lands there like a found one. A missing project the user declines is reported in step 6 and nothing is written for it.
+
+Wait for their edits or their go. Done when every record has a project or an explicit "not now", and every duration is approved.
 
 ## 3. Create the document
 
@@ -49,4 +57,4 @@ Ask which to apply. Write the accepted ones in one `update_tasks` call (all patc
 
 ## 6. Report
 
-Four lines per project: the document (title, link to the project when a result carried one), the task changes written, the time logged, and what to check in the app.
+Four lines per project: the document (title, link to the project when a result carried one), the task changes written, the time logged, and what to check in the app. Then one line per record left without a project: which customer, and that it can be created later with the setup skill or from the app.
