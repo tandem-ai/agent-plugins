@@ -1,0 +1,21 @@
+AGENTS.md
+  s_9bfd506c34d5a1::t_eb2420ec7e0880 13-31
+README.md
+  s_9bfd506c34d5a1::t_c8c2e22c86ed91 112
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "332021522f8cdde5ac6f89119701a6406f9b7639",
+  "prompts": {},
+  "sessions": {
+    "s_9bfd506c34d5a1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7921f97f-7d55-42db-bc81-b2870e3bb740",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
