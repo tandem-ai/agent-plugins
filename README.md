@@ -7,7 +7,7 @@ Tandem is the shared memory of a customer project: people, decisions, plan, conv
 | Skill | What it does |
 |---|---|
 | `sync` | Save the current work session into its Tandem project as a document the team reads in the app and the Tandem copilot can search. The assistant summarises its own session; the user reviews; then, on request, task updates and time. |
-| `setup` | Onboard from the assistant up to a first live project: guided source connections, project creation, first brief. |
+| `setup` | Onboard from the assistant up to a first live project: the project first, then guided source connections and attach, then the reading. |
 
 The connector is the production Tandem MCP server: `https://api.usetandem.ai/mcp`, OAuth 2.1, user-scoped. Nothing in this repository holds credentials.
 
