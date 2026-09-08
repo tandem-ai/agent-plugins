@@ -1,0 +1,103 @@
+.agents/plugins/marketplace.json
+  s_79978a14270e1d::t_c2a80101eee040 7-8,13,19
+.agents/skills/setup/SKILL.md
+  s_79978a14270e1d::t_8dad1051242559 9,34,53,55
+.agents/skills/sync/SKILL.md
+  s_79978a14270e1d::t_6e65528eeb647f 3,8,10,12,14,16,18,20,22,24,26,28,31-32,34,36,38,40,42,44,46,48
+.agents/skills/sync/references/session-record.md
+  s_79978a14270e1d::t_9571a0638575bf 1,3,6,8-11,14,29
+.claude-plugin/marketplace.json
+  s_79978a14270e1d::t_3f7bb100acfee2 3,12-13,25,37
+.claude-plugin/plugin.json
+  s_79978a14270e1d::t_12601eb9daa4c5 4-5
+.codex-plugin/plugin.json
+  s_79978a14270e1d::t_4df0715f42e5d3 3-4,9
+.cursor-plugin/plugin.json
+  s_79978a14270e1d::t_991cd66403c5cf 4-5
+.scratch/mcp-plugin-skills/issues/02-sync-trigger-policy.md
+  s_79978a14270e1d::t_9eef843f5e22f8 3,8-11
+.scratch/mcp-plugin-skills/issues/03-session-record-format.md
+  s_79978a14270e1d::t_2f1925a09180e9 7
+.scratch/mcp-plugin-skills/issues/05-workspace-mapping-file.md
+  s_79978a14270e1d::t_7b40b3ca3407c2 3,8-11
+.scratch/mcp-plugin-skills/issues/06-hooks-on-other-clients.md
+  s_79978a14270e1d::t_bed448b46debf1 3,8-11
+.scratch/mcp-plugin-skills/issues/10-start-without-a-plan.md
+  s_79978a14270e1d::t_cbac0ee0f2fcb6 3,8-11
+.scratch/mcp-plugin-skills/issues/11-sync-as-document.md
+  s_79978a14270e1d::t_bff653518b3890 1-11
+.scratch/mcp-plugin-skills/map.md
+  s_79978a14270e1d::t_3bbfce552d7009 7,12,19-21,31-32
+AGENTS.md
+  s_79978a14270e1d::t_0525def56a4021 3
+GEMINI.md
+  s_79978a14270e1d::t_7612293064abd6 5
+README.md
+  s_79978a14270e1d::t_49583fe4361ca0 3,5,9-10,18,29,47,72,91,93,101,104,106-108,114-117,119,127,132,136
+gemini-extension.json
+  s_79978a14270e1d::t_b2c3f1d9af2194 3-4
+package.json
+  s_79978a14270e1d::t_ae2f745bf8f24d 3
+plugin.json
+  s_79978a14270e1d::t_f4c30ab5451982 3
+scripts/build.mjs
+  s_79978a14270e1d::t_63fd630d1eb1c2 69,71
+skills/setup/SKILL.md
+  s_79978a14270e1d::t_ca2e650cf0dfe2 9,34,53,55
+skills/sync/SKILL.md
+  s_79978a14270e1d::t_025fce4c5c0673 3,8,10,12,14,16,18,20,22,24,26,28,31-32,34,36,38,40,42,44,46,48
+skills/sync/references/session-record.md
+  s_79978a14270e1d::t_180ad6dd4248b9 1,3,6,8-11,14,29
+variants/local/.claude-plugin/plugin.json
+  s_79978a14270e1d::t_a3cca083798093 4-5
+variants/local/.codex-plugin/plugin.json
+  s_79978a14270e1d::t_cb5707588f966e 3-4,9
+variants/local/.cursor-plugin/plugin.json
+  s_79978a14270e1d::t_e6e85ed5851bc9 4-5
+variants/local/GEMINI.md
+  s_79978a14270e1d::t_7100642ddc1e8f 5
+variants/local/gemini-extension.json
+  s_79978a14270e1d::t_19d62810530e6d 3-4
+variants/local/plugin.json
+  s_79978a14270e1d::t_d954a7c5daaa9a 3
+variants/local/skills/setup/SKILL.md
+  s_79978a14270e1d::t_53955d2837819c 9,34,53,55
+variants/local/skills/sync/SKILL.md
+  s_79978a14270e1d::t_f004fbfdd4999f 3,8,10,12,14,16,18,20,22,24,26,28,31-32,34,36,38,40,42,44,46,48
+variants/local/skills/sync/references/session-record.md
+  s_79978a14270e1d::t_37857f55a84b31 1,3,6,8-11,14,29
+variants/stage/.claude-plugin/plugin.json
+  s_79978a14270e1d::t_ea0af8873f7ea6 4-5
+variants/stage/.codex-plugin/plugin.json
+  s_79978a14270e1d::t_4c51381060f53b 3-4,9
+variants/stage/.cursor-plugin/plugin.json
+  s_79978a14270e1d::t_199fea9e1e4840 4-5
+variants/stage/GEMINI.md
+  s_79978a14270e1d::t_badbd53496aa89 5
+variants/stage/gemini-extension.json
+  s_79978a14270e1d::t_ca05d62f9ffa37 3-4
+variants/stage/plugin.json
+  s_79978a14270e1d::t_39aae7eacffb26 3
+variants/stage/skills/setup/SKILL.md
+  s_79978a14270e1d::t_8915d4e6fcdc8b 9,34,53,55
+variants/stage/skills/sync/SKILL.md
+  s_79978a14270e1d::t_66f8cb6baa373f 3,8,10,12,14,16,18,20,22,24,26,28,31-32,34,36,38,40,42,44,46,48
+variants/stage/skills/sync/references/session-record.md
+  s_79978a14270e1d::t_f471a161bfcde7 1,3,6,8-11,14,29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "aa268926a9ab690bf109f38a8d8f81c2ce30ad11",
+  "prompts": {},
+  "sessions": {
+    "s_79978a14270e1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "701a0dde-a46a-4d76-b8b2-7c79789b5ce8",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
