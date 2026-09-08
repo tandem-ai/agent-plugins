@@ -53,5 +53,5 @@ Never compose an app hostname yourself: the same skill runs against production, 
 
 1. Every read that names a project or a task returns `coordinates.url` (project page, task page). Use it verbatim.
 2. `connect_integration` returns `integrations_url` per provider when the server provides it. Use it verbatim.
-3. Otherwise take the app base URL from the server's `instructions` received at connection time (the line starting with `App:`), and build `<app>/<account.slug>/integrations?integration=<integration_key>` or `<app>/<account.slug>/projects/<implementation_id>`.
+3. Otherwise take the app origin (scheme and host) from any `url` a result already returned in this session (`list_playbooks` → `playbooks[].url`, `coordinates.url`), or from the server's `instructions` received at connection time (the line starting with `App:`), and build `<app>/<account.slug>/integrations?integration=<integration_key>` or `<app>/<account.slug>/projects/<implementation_id>`. The Integrations page opens the named provider's connect form.
 4. If none of these is available, ask the user for the address they use to open Tandem and build the link from it.
