@@ -21,7 +21,7 @@ Done when the document is written and would stand on its own.
 
 If the conversation names the project or customer, resolve it with `list_projects` (`q` = that name). Otherwise ask the user which project this belongs to; with several accounts, let the server's account choices settle the account first.
 
-Show the user the document and the project it will land in, and ask in the same message roughly how long the session took (minutes; the conversation's timestamps give a first estimate). Wait for their edits or their go. Done when document, project and duration are approved.
+Show the user the document, the project it will land in, and your estimate of the session's duration from the conversation's timestamps, stated as a number to confirm ("about 2h10 by the timestamps, correct?"), in one message. A pause with no activity is not work: leave it out of the estimate and say so when it is large. Wait for their edits, their corrected duration, or their go. Done when document, project and duration are approved.
 
 ## 3. Create the document
 
