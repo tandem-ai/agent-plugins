@@ -66,9 +66,9 @@ const ENVS = {
 const PROD = { api: "https://api.usetandem.ai", app: "https://app.usetandem.ai" };
 const VARIANT_FILES = [
   ".mcp.json", ".claude-plugin/plugin.json", ".codex-plugin/plugin.json", ".cursor-plugin/plugin.json",
-  ".cursor/mcp.json", "gemini-extension.json", "GEMINI.md", "plugin.json", "mcp_config.json", "hooks/hooks.json",
+  ".cursor/mcp.json", "gemini-extension.json", "GEMINI.md", "plugin.json", "mcp_config.json",
 ];
-const VARIANT_DIRS = ["skills", "scripts"];
+const VARIANT_DIRS = ["skills"];
 const variantsRoot = join(root, "variants");
 if (!check) rmSync(variantsRoot, { recursive: true, force: true });
 for (const [env, hosts] of Object.entries(ENVS)) {
@@ -93,7 +93,6 @@ for (const [env, hosts] of Object.entries(ENVS)) {
   }
   for (const d of VARIANT_DIRS) {
     cpSync(join(root, d), join(out, d), { recursive: true });
-    // skills carry app links; scripts carry none but stay executable
     for (const s of skills) {
       for (const f of ["SKILL.md", "references/tandem-mcp.md", "references/providers.md"]) {
         const fp = join(out, "skills", s, f);

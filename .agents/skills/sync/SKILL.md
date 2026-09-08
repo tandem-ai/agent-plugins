@@ -1,61 +1,48 @@
 ---
 name: sync
-description: Record the current work session into its Tandem project — a session record added to the project's context, task updates proposed and confirmed, time logged. Use at the end of a work session on a client project, before context compaction, when the user asks to sync or save the session to Tandem, when the start skill closes, or when a Stop hook asks for it.
+description: Save the current work session into its Tandem project as a document the team can read and the Tandem copilot can search — decisions, deliverables, assumptions, open questions — then, if the user wants, propose task updates and log time. Use when the user asks to sync, save or record the session to Tandem, or at the end of a work session on a client project.
 ---
 
 # Sync the session into Tandem
 
-The session becomes an item in the project's activity, visible to the team like a call or a Slack thread: "Gabriel, Claude Code, 2h10: HubSpot field mapping, decision X, open question Y." The project brief updates from it, task changes are proposed, time is logged.
+The session becomes a document on the project: a teammate reads it in the app like a call recap, and the Tandem copilot retrieves it when someone asks what was decided or delivered. Nothing runs on its own: the user asks for the sync, reviews the document, and decides what else to write.
 
-Read `references/tandem-mcp.md` first. The record format is `references/session-record.md`.
+Read `references/tandem-mcp.md` first. The document format is `references/session-record.md`.
 
-## 1. Resolve the project and the notes
+## 1. Summarise the session yourself
 
-Project: the session notes kept by the `start` skill → `.tandem.json` in the workspace → ask. Notes: the running session notes when they exist; otherwise reconstruct them from this conversation. Duration: from the session start time in the notes or the SessionStart hook; otherwise ask ("about how long did this take?").
+You are the assistant that ran this session, so you hold the whole conversation. Summarise it directly, from your own context, into the format of `references/session-record.md`: what the user set out to do, what was done, decisions and why, deliverables (files, PRs, configurations, documents, by name), assumptions not validated with the customer, open questions, next steps. Write it for a teammate who was not there: facts, past tense, complete sentences.
 
-Done when you hold the `implementation_id`, the notes, and a duration in minutes.
+Keep out: transcript excerpts, code, file contents, command output, stack traces, secrets (tokens, keys, passwords, connection strings, `.env` values), and any personal data beyond the names the project already knows. Under 15,000 characters; a long session gets a tighter summary, never a split.
 
-## 2. Write the session record
+Done when the document is written and would stand on its own.
 
-Fill `references/session-record.md`. Rules that make it safe to share with the team and to send to a third-party service:
+## 2. Resolve the project and confirm
 
-- Decisions, deliverables, assumptions, questions, tasks touched, duration. Nothing else.
-- No transcript, no code, no file contents, no command output, no stack traces. Name files and PRs, do not paste them.
-- No secrets. Scan for tokens, keys, passwords, connection strings, `.env` values, and remove them even when they look harmless.
-- People: only names the project already knows (stakeholders, teammates). No personal data beyond that.
-- Under 12,000 characters. A longer session gets a shorter record, not a split.
-- Written, factual, past tense. The reader is a teammate who was not there.
+If the conversation names the project or customer, resolve it with `list_projects` (`q` = that name). Otherwise ask the user which project this belongs to; with several accounts, let the server's account choices settle the account first.
 
-Show the record to the user and wait for their edits or go. Exception: `.tandem.json` says `sync: auto` and the skill runs from a hook, in which case send it as written and say so in the final report.
+Show the user the document and the project it will land in. Wait for their edits or their go. Done when both are approved.
 
-Done when the user has approved the record, or auto mode applies.
+## 3. Create the document
 
-## 3. Add it to the project
-
-Search "add a note or pasted content to a project" and execute `add_context` with:
+Search "write a document into a project" and execute `create_document` with:
 
 - `implementation_id`
-- `content`: the record, verbatim
-- `register`: `written`
-- `happened_on`: today, `YYYY-MM-DD`
-- `origin`: the client you are running in, e.g. `Claude Code session`, `Cursor session`
+- `title`: `Work session — <YYYY-MM-DD> — <topic in five words or fewer>` (the topic comes from the summary, e.g. `HubSpot field mapping`)
+- `body`: the approved document, markdown, verbatim
 
-Answer `input_required` by passing only the field it names, keeping `content` unchanged. `already_present: true` means this exact record was sent before: stop here and say so.
+The body becomes a real project document: stored, indexed, readable in the app, and searchable by the Tandem copilot through project document search. Done when the result carries `created: true` and a `document_id`.
 
-Done when the result carries `added: true` and an `item_id`.
+## 4. Offer task updates
 
-## 4. Propose task changes
+Read the project's open tasks with `list_project_tasks` and compare them with the summary. Propose, as a short list, the changes the session justifies: a task to mark `in_progress`, `blocked` or `done` with a completion note, a follow-up task for an open question that belongs in the plan. If the server offers a capability named `propose_task_changes` (search "propose task changes from an ingested record"), prefer its rows.
 
-For each task in the notes, propose one change: status (`in_progress`, `blocked`, `done`), a completion note, or a new follow-up task for an open question that belongs in the plan. If a capability named `propose_task_changes` exists on this server (search "propose task changes from an ingested record"), call it with the `item_id` from step 3 and present its rows instead of deriving them yourself.
+Ask which to apply. Write the accepted ones in one `update_tasks` call (all patches in `updates`) and one `create_tasks` call for new tasks. Skip entirely if the user declines. Done when the user has answered and the confirmed writes have returned.
 
-Present the proposals as a list and ask which to apply. Apply in one `update_tasks` call (all patches in `updates`), one `create_tasks` call for new tasks, and `add_note` for context worth reading later. Done when the user has answered and the confirmed writes have returned.
+## 5. Offer to log the time
 
-## 5. Log the time
+Ask whether to log the session's time: one entry on the project, or one per task when the session touched several, each with a one-line `note`; `date` today, `billable` default unless said otherwise. Write with `log_time_entries` only on a yes. Entries land unsynced in the timesheet for review.
 
-Propose `log_time_entries` with one entry for the project, or one entry per task when the session touched several ("1h30 mapping, 40 min acceptance tests"), each with a one-line `note`. `date` is today; `billable` stays default unless the user says otherwise. Ask before writing; skip if the user declines. Entries land unsynced in the timesheet for review.
+## 6. Report
 
-Done when the entries are written or declined.
-
-## 6. Finish
-
-Update `.tandem.json` `last_sync` to now (ISO, UTC) when the file exists and the user allowed edits to it. Report in four lines: what was added to the project, which tasks changed, what time was logged, what the user should check in the app (link to the project when a result carried one).
+Four lines: the document (title, link to the project when a result carried one), the task changes written, the time logged, and what to check in the app.

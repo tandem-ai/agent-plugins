@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Set up Tandem, up to a first project
 
-For a user who just installed the plugin, whether they are new to Tandem or not. The MCP's OAuth already identified them. The goal is a first project that lives: the customer, the plan, the sources the user chose, a first brief. Then the workspace is linked so `start` and `sync` work without setup.
+For a user who just installed the plugin, whether they are new to Tandem or not. The MCP's OAuth already identified them. The goal is a first project that lives: the customer, the plan, the sources the user chose, a first brief. Then the user knows how to bring the next session back into it with `sync`.
 
 Read `references/tandem-mcp.md` first. Provider guidance is in `references/providers.md`.
 
@@ -31,7 +31,7 @@ For each provider the user wants, one at a time:
 3. Send the provider's Integrations link (`integrations_url` from `connect_integration`, or built as described in `references/tandem-mcp.md` → Links to the app) and say the key or authorization is entered there, never in this chat.
 4. When the user says it is done, call `list_integrations` and confirm the provider now appears in `connections`. If not, say what to check and offer to continue with the next one.
 
-The user may skip any provider; everything remains addable later from `start`. Done when every chosen provider is connected or explicitly skipped.
+The user may skip any provider; everything remains addable later. Done when every chosen provider is connected or explicitly skipped.
 
 ## 4. Create the project
 
@@ -50,8 +50,6 @@ Done when the project exists and the user has answered the source and teammate q
 
 Call `get_brief` on the new project and show it. Say plainly that it fills in as the connected sources are read, and that the next `start` will show the difference.
 
-## 6. Link the workspace
+## 6. Close
 
-If the session runs in a repository or folder, propose to write `.tandem.json` at its root (format in `references/tandem-mcp.md`) with the project, its id, the account, and `sync` set to `ask` unless the user prefers `auto` or `off`. Explain the three modes in one line each. Write it only with their agreement.
-
-Close with three things to try next: "run start on this project", "what changed on <customer> this week", "prepare my call with <stakeholder>".
+Three things to try next, in the user's words: "what changed on <customer> this week", "prepare my call with <stakeholder>", and, at the end of a work session, "sync this session to Tandem".

@@ -1,7 +1,7 @@
 {
   "name": "tandem",
-  "version": "0.1.1",
-  "description": "Tandem MCP connector + skills (start, sync, setup) for customer implementation work.",
+  "version": "0.2.0",
+  "description": "Tandem MCP connector + skills (sync, setup) for customer implementation work.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
     "tandem": {
