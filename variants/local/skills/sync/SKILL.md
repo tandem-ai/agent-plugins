@@ -21,7 +21,7 @@ Done when the document is written and would stand on its own.
 
 If the conversation names the project or customer, resolve it with `list_projects` (`q` = that name). Otherwise ask the user which project this belongs to; with several accounts, let the server's account choices settle the account first.
 
-Show the user the document and the project it will land in. Wait for their edits or their go. Done when both are approved.
+Show the user the document and the project it will land in, and ask in the same message roughly how long the session took (minutes; the conversation's timestamps give a first estimate). Wait for their edits or their go. Done when document, project and duration are approved.
 
 ## 3. Create the document
 
@@ -33,15 +33,17 @@ Search "write a document into a project" and execute `create_document` with:
 
 The body becomes a real project document: stored, indexed, readable in the app, and searchable by the Tandem copilot through project document search. Done when the result carries `created: true` and a `document_id`.
 
-## 4. Offer task updates
+An `in_doubt` failure means the write threw on Tandem's side: read `list_documents` for the project; when the title is absent, retry once, and if it fails again say the server refused the write and stop the document step there. Never a third attempt.
+
+## 4. Log the time
+
+Propose one `log_time_entries` entry on the project with the approved duration and a one-line `note` (the document's topic), or one per task when the session touched several; `date` today, `billable` default unless said otherwise. Write it on the user's yes. Entries land unsynced in the timesheet for review.
+
+## 5. Offer task updates
 
 Read the project's open tasks with `list_project_tasks` and compare them with the summary. Propose, as a short list, the changes the session justifies: a task to mark `in_progress`, `blocked` or `done` with a completion note, a follow-up task for an open question that belongs in the plan. If the server offers a capability named `propose_task_changes` (search "propose task changes from an ingested record"), prefer its rows.
 
 Ask which to apply. Write the accepted ones in one `update_tasks` call (all patches in `updates`) and one `create_tasks` call for new tasks. Skip entirely if the user declines. Done when the user has answered and the confirmed writes have returned.
-
-## 5. Offer to log the time
-
-Ask whether to log the session's time: one entry on the project, or one per task when the session touched several, each with a one-line `note`; `date` today, `billable` default unless said otherwise. Write with `log_time_entries` only on a yes. Entries land unsynced in the timesheet for review.
 
 ## 6. Report
 
