@@ -43,7 +43,7 @@ Give the exact page, the plan, and the scope, in this order: open the key page �
 | Grain | https://grain.com/app/settings/integrations?tab=api (Workspace settings → Integrations → API) → Personal access token. Docs: https://support.grain.com/en/articles/15507288-grain-api | Starter plan or above (not Free). A personal token reads the user's own recordings; a workspace token needs workspace admin rights. |
 | Fathom | https://fathom.video/customize#api-access-header (User Settings → API Access) → Generate API key. Docs: https://developers.fathom.ai/quickstart | No plan restriction documented. Reads the meetings recorded by, or shared with, the user who created the key. |
 | Avoma | Avoma → Settings → Organization → Developer → Add API Key. Docs: https://help.avoma.com/api-integration-for-avoma | Organization admins only. The key is one string `CLIENT_KEY:CLIENT_SECRET`; paste it whole. |
-| Fireflies | https://app.fireflies.ai/integrations/custom/fireflies (Integrations → Fireflies API → Get API Key, or Settings → Developer settings). Docs: https://guide.fireflies.ai/articles/3135274098-how-to-access-the-fireflies-api-key | All plans. Reads the meetings of the user who owns the key. |
+| Fireflies | https://app.fireflies.ai/integrations/custom/fireflies (Integrations → Fireflies API → Get API Key, or Settings → Developer settings). Docs: https://docs.fireflies.ai/fundamentals/authorization | All plans. Reads the meetings of the user who owns the key. |
 
 ## When it fails
 
