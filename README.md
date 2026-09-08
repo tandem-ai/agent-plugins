@@ -1,14 +1,13 @@
 # Tandem for AI assistants
 
-One repository, one plugin: the **Tandem MCP connector** plus three **skills**, installable in Claude (claude.ai, Desktop, Cowork, Claude Code), ChatGPT and Codex, Cursor, Gemini CLI and Antigravity, and any client that reads the open [Agent Skills](https://agentskills.io) format.
+One repository, one plugin: the **Tandem MCP connector** plus two **skills**, installable in Claude (claude.ai, Desktop, Cowork, Claude Code), ChatGPT and Codex, Cursor, Gemini CLI and Antigravity, and any client that reads the open [Agent Skills](https://agentskills.io) format.
 
-Tandem is the shared memory of a customer project: people, decisions, plan, conversations, time. This plugin brings it into the assistant you already work in.
+Tandem is the shared memory of a customer project: people, decisions, plan, conversations, time. This plugin brings it into the assistant you already work in. It never runs on its own: the user asks, reviews, decides.
 
 | Skill | What it does |
 |---|---|
-| `start` | Begin a work session on a client project: where it stands, what remains, what changed; then frame the chosen task and keep checking the work against what the customer validated. |
-| `sync` | Record the session back into the project: a session record in the project's activity, task updates proposed and confirmed, time logged. |
-| `setup` | Onboard from the assistant up to a first live project: guided source connections, project creation, first brief, workspace link. |
+| `sync` | Save the current work session into its Tandem project as a document the team reads in the app and the Tandem copilot can search. The assistant summarises its own session; the user reviews; then, on request, task updates and time. |
+| `setup` | Onboard from the assistant up to a first live project: guided source connections, project creation, first brief. |
 
 The connector is the production Tandem MCP server: `https://api.usetandem.ai/mcp`, OAuth 2.1, user-scoped. Nothing in this repository holds credentials.
 
@@ -16,7 +15,7 @@ The connector is the production Tandem MCP server: `https://api.usetandem.ai/mcp
 
 ### Claude.ai, Claude Desktop, Claude Cowork
 
-Customize → **Plugins** → **Add marketplace** → enter `tandem-ai/agent-plugins` → install **Tandem**. You are prompted to sign in to Tandem when the connector is first used. Paid plans only. Hooks and sub-agents run in Cowork and Claude Code; in the chat, skills and the connector work and `sync` is run by hand.
+Customize → **Plugins** → **Add marketplace** → enter `tandem-ai/agent-plugins` → install **Tandem**. You are prompted to sign in to Tandem when the connector is first used. Paid plans only.
 
 Team and Enterprise: an owner adds the same marketplace to the organization (available, auto-installed, or required for everyone).
 
@@ -27,7 +26,7 @@ Team and Enterprise: an owner adds the same marketplace to the organization (ava
 /plugin install tandem@tandem
 ```
 
-Then `/mcp` → tandem → authenticate. Skills are `/tandem:start`, `/tandem:sync`, `/tandem:setup`. Teams can pre-install through `.claude/settings.json`:
+Then `/mcp` → tandem → authenticate. Skills are `/tandem:sync` and `/tandem:setup`. Teams can pre-install through `.claude/settings.json`:
 
 ```json
 {
@@ -45,7 +44,7 @@ codex plugin marketplace add tandem-ai/agent-plugins
 codex /plugins        # install Tandem, then: codex mcp login tandem
 ```
 
-Skills are invoked with `$start`, `$sync`, `$setup` or chosen automatically. In ChatGPT (web, desktop, mobile) the plugin is installed from the Plugins directory once published, or published to a workspace by an admin; a Business/Enterprise admin can import this repository as a marketplace with daily sync. Hooks do not run in ChatGPT web.
+Skills are invoked with `$sync`, `$setup` or chosen automatically. In ChatGPT (web, desktop, mobile) the plugin is installed from the Plugins directory once published, or published to a workspace by an admin; a Business/Enterprise admin can import this repository as a marketplace with daily sync.
 
 ### Cursor
 
@@ -70,7 +69,7 @@ git clone https://github.com/tandem-ai/agent-plugins
 agy plugin install ./agent-plugins
 ```
 
-`plugin.json` + `mcp_config.json` + `skills/` at the root are the Antigravity layout. Importing the Gemini extension (`agy plugin import gemini`) is also documented for migrated Gemini CLI users.
+`plugin.json` + `mcp_config.json` + `skills/` at the root are the Antigravity layout.
 
 ### GitHub Copilot, VS Code
 
@@ -89,10 +88,9 @@ Add the connector URL `https://api.usetandem.ai/mcp` in the client's connected-a
 ## What is inside
 
 ```
-skills/<name>/SKILL.md          the three skills (source of truth)
+skills/<name>/SKILL.md          the two skills (source of truth)
 skills/<name>/references/       per-skill reference material; tandem-mcp.md is copied from reference/
-reference/tandem-mcp.md         how to work with the Tandem MCP (two tools, naming, failures, no cards)
-hooks/hooks.json + scripts/     Claude Code hooks: announce the linked project at SessionStart; Stop guard for sync=auto
+reference/tandem-mcp.md         how to work with the Tandem MCP (two tools, naming, failures, no cards, links)
 .mcp.json                       the connector, for Claude and Codex
 .claude-plugin/                 Claude plugin manifest + marketplace
 .codex-plugin/ .agents/plugins/ OpenAI plugin manifest + marketplace
@@ -100,22 +98,25 @@ hooks/hooks.json + scripts/     Claude Code hooks: announce the linked project a
 gemini-extension.json GEMINI.md Gemini CLI extension
 plugin.json mcp_config.json     Antigravity plugin
 .agents/skills/                 generated mirror of skills/ (Codex, Cursor, Copilot, Antigravity read it)
+variants/                       generated stage and local variants (internal testing)
 ```
 
-### Workspace link
+No hooks, no background behaviour: every write goes through the user's confirmation in their assistant.
 
-A repository or folder can be linked to a Tandem project with a `.tandem.json` file at its root (`setup` writes it with the user's agreement). `start` reads it to load the right project without asking; `sync` writes `last_sync`; the Claude Code hooks announce the project at session start and, when `sync` is `auto`, ask the assistant to sync before the session ends.
+### How `sync` stores a session
+
+`sync` writes a markdown document into the project through the `create_document` capability. Tandem stores it as a real project document, indexes it, and the Tandem copilot retrieves it through project document search when someone asks what was decided or delivered. The document format is `skills/sync/references/session-record.md`.
 
 ## Environments
 
 The repository root is the **production** plugin (`api.usetandem.ai`). `npm run build` also generates full variants under `variants/`:
 
-| Variant | Plugin name | Connector | App links |
-|---|---|---|---|
-| `variants/stage` | `tandem-stage` | `https://api.stage.usetandem.ai/mcp` | `app.stage.usetandem.ai` |
-| `variants/local` | `tandem-local` | `https://api.usetandem.com/mcp` (local proxy) | `app.usetandem.com` |
+| Variant | Plugin name | Connector |
+|---|---|---|
+| `variants/stage` | `tandem-stage` | `https://api.stage.usetandem.ai/mcp` |
+| `variants/local` | `tandem-local` | `https://api.usetandem.com/mcp` (local proxy) |
 
-They are listed in the marketplaces as `tandem-stage` and `tandem-local`, for internal testing only. The plugin name differs so a tester can install a variant beside production without two servers competing for the same job:
+They are listed in the marketplaces as `tandem-stage` and `tandem-local`, for internal testing only:
 
 ```
 /plugin marketplace add /Users/<you>/Workspace/Tandem/agent-plugins   # local checkout, or the GitHub repo
@@ -123,16 +124,16 @@ They are listed in the marketplaces as `tandem-stage` and `tandem-local`, for in
 /mcp   # authenticate tandem-stage against stage
 ```
 
-Skills never hardcode an environment: they follow the connector they are installed with, and app links are rewritten per variant at build time. Never edit `variants/` by hand.
+Skills never hardcode an environment: they follow the connector they are installed with and use the links results carry. Never edit `variants/` by hand.
 
 ## Develop
 
 ```
-npm run build   # copies reference/tandem-mcp.md into each skill, mirrors skills/ to .agents/skills/, checks versions
+npm run build   # copies reference/tandem-mcp.md into each skill, mirrors skills/ to .agents/skills/, generates variants/, checks versions
 npm run check   # verifies the generated files are current (CI)
 ```
 
-Edit only `skills/<name>/SKILL.md`, `skills/<name>/references/<own files>.md` and `reference/tandem-mcp.md`, then run the build. Bump the version in every manifest (the build refuses mismatches). Validate the Claude packaging with `claude plugin validate .` before tagging a release.
+Edit only `skills/<name>/SKILL.md`, `skills/<name>/references/<own files>.md` and `reference/tandem-mcp.md`, then run the build. Bump the version in every manifest (the build refuses mismatches; a version bump is also what makes `plugin update` re-copy the files). Validate the Claude packaging with `claude plugin validate .` before tagging a release. The manifest must not name `.mcp.json` or `hooks/hooks.json`: Claude Code loads the defaults itself and refuses a duplicate.
 
 Open decisions and the plan for this repository are tracked in `.scratch/mcp-plugin-skills/` (wayfinder map).
 

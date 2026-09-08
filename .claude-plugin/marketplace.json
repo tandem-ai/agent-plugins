@@ -1,6 +1,6 @@
 {
   "name": "tandem",
-  "description": "Tandem for AI assistants: the Tandem MCP connector plus skills to start, sync and set up customer project work.",
+  "description": "Tandem for AI assistants: the Tandem MCP connector plus skills to sync a work session into its project and to set up a first project.",
   "owner": {
     "name": "Tandem",
     "url": "https://www.usetandem.ai"
@@ -9,8 +9,8 @@
     {
       "name": "tandem",
       "source": "./",
-      "version": "0.1.1",
-      "description": "Tandem MCP connector + skills: /tandem:start, /tandem:sync, /tandem:setup.",
+      "version": "0.2.0",
+      "description": "Tandem MCP connector + skills: /tandem:sync, /tandem:setup.",
       "category": "productivity",
       "tags": [
         "tandem",
@@ -22,7 +22,7 @@
     {
       "name": "tandem-stage",
       "source": "./variants/stage",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "description": "Internal: Tandem plugin against the stage environment.",
       "category": "productivity",
       "tags": [
@@ -34,7 +34,7 @@
     {
       "name": "tandem-local",
       "source": "./variants/local",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "description": "Internal: Tandem plugin against the local environment.",
       "category": "productivity",
       "tags": [

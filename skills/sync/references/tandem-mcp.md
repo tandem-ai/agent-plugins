@@ -47,25 +47,6 @@ Several capability `usage` texts mention cards (`mode:'shown'`, "the card collec
 - To attach sources to a project, call `list_integrations` with `include_attach_scope: true`, present `attachable` and each source's `scope_choices` as a list, and pass the resulting `integrations` array to `create_project` or `update_project`.
 - `connect_integration` cannot connect anything from here. It only returns what could be connected (`providers[]` with `integration_key`, `already_connected`, `account.slug`). Send the user to the app's Integrations page to authorize (see "Links to the app").
 
-## Workspace mapping (`.tandem.json`)
-
-A workspace (repository or folder) can be linked to a project with a `.tandem.json` file at its root:
-
-```json
-{
-  "project": "ACME – HubSpot migration",
-  "implementation_id": 123,
-  "account": "Tandem",
-  "sync": "ask",
-  "last_sync": "2026-09-04T09:12:00Z"
-}
-```
-
-- `sync`: `ask` (propose a sync at the end of a session), `auto` (a Stop hook asks the assistant to sync before ending, on clients with hooks), `off`.
-- `last_sync`: ISO timestamp written by the sync skill.
-
-Look for it (cwd, then parents up to the git root) before asking the user which project they mean. Create or edit it only with the user's agreement.
-
 ## Links to the app
 
 Never compose an app hostname yourself: the same skill runs against production, stage and local servers.

@@ -1,4 +1,4 @@
 {
   "name": "tandem-stage",
-  "description": "Tandem MCP connector + skills (start, sync, setup) for customer implementation work."
+  "description": "Tandem MCP connector + skills (sync, setup) for customer implementation work."
 }

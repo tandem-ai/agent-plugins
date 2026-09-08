@@ -1,6 +1,6 @@
 # Agent guide — tandem-ai/agent-plugins
 
-This repository ships the Tandem plugin for AI assistants: one MCP connector (`.mcp.json` and its per-platform twins) and the skills in `skills/`.
+This repository ships the Tandem plugin for AI assistants: one MCP connector (`.mcp.json` and its per-platform twins) and the two skills in `skills/`. No hooks, no background behaviour: a skill runs when the user asks and every write is confirmed in the user's assistant.
 
 - Skills are the product. Edit `skills/<name>/SKILL.md` and that skill's own files under `references/`. `references/tandem-mcp.md` inside each skill is generated from `reference/tandem-mcp.md`; edit the source, then run `npm run build`.
 - `.agents/skills/` is generated. Never edit it by hand.
