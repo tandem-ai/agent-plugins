@@ -40,6 +40,7 @@ Search "write a document into a project" once, then execute `create_document` fo
 - `implementation_id`
 - `title`: `Work session — <YYYY-MM-DD> — <topic in five words or fewer>` (the topic comes from the summary, e.g. `HubSpot field mapping`)
 - `body`: the approved document, markdown, verbatim
+- `session_id`: your own session id when your client exposes it, so the document shows which assistant wrote it and lets the user resume the session later. Claude Code: the `CLAUDE_CODE_SESSION_ID` environment variable, read with one shell command. Codex: `CODEX_THREAD_ID`. Omit it elsewhere; never invent one.
 
 The body becomes a real project document: stored, indexed, readable in the app, and searchable by the Tandem copilot through project document search. Done when the result carries `created: true` and a `document_id`.
 
