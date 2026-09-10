@@ -20,12 +20,23 @@ The repository root is the **production** plugin (`api.usetandem.ai`). `npm run 
 | `variants/stage` | `tandem-stage` | `https://api.stage.usetandem.ai/mcp` |
 | `variants/local` | `tandem-local` | `https://api.usetandem.com/mcp` (local proxy) |
 
-They are listed in the marketplaces as `tandem-stage` and `tandem-local`, for internal testing only:
+`variants/` is GENERATED AND UNTRACKED, and it has to stay that way. Claude's
+marketplace backend validates the plugin at its `source`, which is the repository
+root, and refuses a plugin root containing nested `.claude-plugin/plugin.json`
+files (`marketplace_sync_multiple_manifests`). Committing the variants therefore
+broke "Add marketplace" in Claude Desktop for everyone while the Claude Code CLI
+still accepted it, because only the server-side validator enforces the rule.
+
+So the variants are for a tester's own machine. Run `npm run build`, then add the
+local checkout as the marketplace:
 
 ```
-/plugin marketplace add /Users/<you>/Workspace/Tandem/agent-plugins   # local checkout, or the GitHub repo
+/plugin marketplace add /Users/<you>/Workspace/Tandem/agent-plugins   # your checkout, never the GitHub repo
 /plugin install tandem-stage@tandem
 /mcp   # authenticate tandem-stage against stage
 ```
+
+That works because a local marketplace is validated by the CLI, not the backend.
+Only the published `tandem` plugin is listed in the committed marketplaces.
 
 Skills never hardcode an environment: they follow the connector they are installed with and use the links results carry. Never edit `variants/` by hand.
