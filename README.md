@@ -17,7 +17,15 @@ The connector is the production Tandem MCP server: `https://api.usetandem.ai/mcp
 
 Customize → **Plugins** → **Add marketplace** → enter `tandem-ai/agent-plugins` → install **Tandem**. You are prompted to sign in to Tandem when the connector is first used. Paid plans only.
 
-Team and Enterprise: an owner adds the same marketplace to the organization (available, auto-installed, or required for everyone).
+**Each member installs it themselves**, and that is the supported route: Claude's
+organization marketplaces (Organization settings → Plugins) only accept a
+**private or internal** repository the org's own owner can reach, so no admin can
+push this public marketplace out to a team.
+
+A team that wants central control — auto-installed or required for everyone —
+mirrors this repository into a private repository of their own and adds that
+instead. Everything here is generated from one source, so a mirror is a plain
+`git push` of `main` to a second remote.
 
 ### Claude Code
 
