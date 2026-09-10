@@ -1,0 +1,21 @@
+LICENSE
+  s_111b41da4de2d4::t_71231696ac7756 1-21
+package.json
+  s_111b41da4de2d4::t_06fe379febc82d 10-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "b503e22d9bb88dc50e9c39255528cfb011c43ae3",
+  "prompts": {},
+  "sessions": {
+    "s_111b41da4de2d4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d07ec0fc-facf-4aad-b547-1c3182e391bb",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
