@@ -18,30 +18,6 @@
         "implementation",
         "mcp"
       ]
-    },
-    {
-      "name": "tandem-stage",
-      "source": "./variants/stage",
-      "version": "0.2.0",
-      "description": "Internal: Tandem plugin against the stage environment.",
-      "category": "productivity",
-      "tags": [
-        "tandem",
-        "internal",
-        "stage"
-      ]
-    },
-    {
-      "name": "tandem-local",
-      "source": "./variants/local",
-      "version": "0.2.0",
-      "description": "Internal: Tandem plugin against the local environment.",
-      "category": "productivity",
-      "tags": [
-        "tandem",
-        "internal",
-        "local"
-      ]
     }
   ]
 }
