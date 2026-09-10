@@ -1,0 +1,19 @@
+.gitignore
+  s_54fbba0ca0a96b::t_251a39bf9d45b7 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "ccac2d8939302b2275d256f75cb35a72f283b4d3",
+  "prompts": {},
+  "sessions": {
+    "s_54fbba0ca0a96b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_54fbba0ca0a96b",
+        "model": "unknown"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
