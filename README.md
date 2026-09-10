@@ -27,6 +27,24 @@ mirrors this repository into a private repository of their own and adds that
 instead. Everything here is generated from one source, so a mirror is a plain
 `git push` of `main` to a second remote.
 
+### For a customer's IT admin: no marketplace needed
+
+An organization marketplace only accepts a private repository the org's own
+owner can reach, so neither half of this plugin has to go that route:
+
+1. **The connector, once, for everyone.** Organization settings → **Connectors**
+   → **Add** → `https://api.usetandem.ai/mcp`. Members then sign in
+   individually, so Claude only ever reaches what each person can already see.
+   Enterprise plans can provision it through their identity provider instead, and
+   people get it on first login.
+2. **The skills, as uploads.** Run `npm run package:skills` here and send the two
+   files from `dist/skills/`. The owner adds each in Organization settings →
+   **Skills** → **Add**. Members get them from the directory, marked as
+   provisioned by the organization.
+
+That is the whole install for a team: one URL and two zips, no repository, no
+mirror, no admin access to anything of ours.
+
 ### Claude Code
 
 ```
