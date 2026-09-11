@@ -1,0 +1,26 @@
+.cursor-plugin/plugin.json
+  s_91fe41f5198b8e::t_0e812df23c0748 4
+scripts/build.mjs
+  s_91fe41f5198b8e::t_0e812df23c0748 11-18,20-21,23-27,104-107,124-127
+  s_91fe41f5198b8e::t_a846127b313f1f 5,19,22
+scripts/build.test.mjs
+  s_91fe41f5198b8e::t_a846127b313f1f 1-52
+package.json
+  s_91fe41f5198b8e::t_a846127b313f1f 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "b21bee20061234c27278029ea186e6c912f2cb18",
+  "prompts": {},
+  "sessions": {
+    "s_91fe41f5198b8e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a08f66-be8c-7440-97a1-6b3b450a6268",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
