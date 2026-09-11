@@ -35,6 +35,15 @@ test("build and check validate manifest assets and generated copies", () => {
       }
       writeFileSync(path, original);
     }
+    const codexPath = join(scratch, ".codex-plugin/plugin.json");
+    const codexOriginal = readFileSync(codexPath, "utf8");
+    const codex = JSON.parse(codexOriginal);
+    delete codex.interface.logoDark;
+    writeFileSync(codexPath, JSON.stringify(codex));
+    assert.equal(run().status, 0);
+    assert.equal(run("--check").status, 0);
+    writeFileSync(codexPath, codexOriginal);
+    assert.equal(run().status, 0);
     writeFileSync(join(scratch, "variants/stage/assets/icon.png"), "stale");
     assert.match(run("--check").stderr, /variants\/stage\/assets\/icon\.png is stale/);
     assert.equal(run().status, 0);

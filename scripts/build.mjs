@@ -16,6 +16,7 @@ for (const [manifest, fields] of [
   const data = JSON.parse(readFileSync(join(root, manifest), "utf8"));
   for (const field of fields) {
     const asset = (data.interface ?? data)[field];
+    if (asset === undefined) continue;
     if (typeof asset !== "string" || isAbsolute(asset) || normalize(asset).startsWith("../") || !statSync(join(root, asset), { throwIfNoEntry: false })?.isFile()) {
       problems.push(`${manifest}: ${field} must reference an existing asset file (${asset})`);
     } else {

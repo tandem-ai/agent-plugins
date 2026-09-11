@@ -145,6 +145,7 @@ Claude plugin manifests have no documented icon field. The asset is available fo
 ```
 npm run build   # copies reference/tandem-mcp.md into each skill, mirrors skills/ to .agents/skills/, checks versions
 npm run check   # verifies the generated files are current (CI)
+npm test        # checks icon validation and generated asset copies
 ```
 
 Edit only `skills/<name>/SKILL.md`, `skills/<name>/references/<own files>.md` and `reference/tandem-mcp.md`, then run the build. Bump the version in every manifest (the build refuses mismatches; a version bump is also what makes `plugin update` re-copy the files). Validate the Claude packaging with `claude plugin validate .` before tagging a release. The manifest must not name `.mcp.json` or `hooks/hooks.json`: Claude Code loads the defaults itself and refuses a duplicate.
