@@ -1,6 +1,6 @@
 {
   "name": "@tandem-ai/agent-plugins",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Tandem plugin for AI assistants: MCP connector + skills, one repo, one manifest per platform.",
   "type": "module",

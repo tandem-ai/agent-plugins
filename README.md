@@ -132,6 +132,12 @@ No hooks, no background behaviour: every write goes through the user's confirmat
 
 `sync` writes a markdown document into the project through the `create_document` capability. Tandem stores it as a real project document, indexes it, and the Tandem copilot retrieves it through project document search when someone asks what was decided or delivered. The document format is `skills/sync/references/session-record.md`.
 
+## Branding
+
+`assets/icon.png` is the shared logo for Codex and Cursor, including the generated stage and local variants. Replace this file to update the logo, then run `npm run build`. Codex uses it in light and dark mode.
+
+Claude plugin manifests have no documented icon field. The asset is available for directory branding, but packaging it does not set the icon of Claude's remote MCP connector.
+
 ## Develop
 
 ```

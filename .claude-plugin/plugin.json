@@ -1,7 +1,7 @@
 {
   "name": "tandem",
   "displayName": "Tandem",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Tandem in your AI assistant: the Tandem MCP connector plus two skills \u2014 save a work session into its project as a document, and onboard up to a first project.",
   "author": {
     "name": "Tandem",
