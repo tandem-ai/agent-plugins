@@ -1,0 +1,81 @@
+# The skills, as files an administrator can actually accept, published whenever
+# the version changes.
+#
+# A customer's owner installs our skills through Organization settings → Skills →
+# Add, which takes a zip whose root is the skill folder. Cursor and Copilot read
+# them out of a repository path instead. Neither audience is going to clone this
+# repo and run npm, so the archives have to exist as downloads.
+#
+# TRIGGERED BY THE VERSION, NOT BY A TAG. A release nobody remembers to tag is a
+# release that does not happen, and the manifests already carry the version that
+# `npm run check` keeps aligned. Bumping it in a merged commit is the whole
+# ceremony; the tag is created here from that commit. Doing both in one job is
+# also what makes it work at all: a tag pushed with the default token does not
+# trigger another workflow, so a separate tag-then-release pair would stall.
+name: Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Read the version, and stop if it is already released
+        id: version
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          echo "tag=v${version}" >> "$GITHUB_OUTPUT"
+          if git rev-parse "v${version}" >/dev/null 2>&1; then
+            echo "v${version} is already tagged; nothing to release."
+            echo "release=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "release=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # No install step: the packaging script uses node and zip only, and the
+      # repo has no runtime dependencies. `check` is here so a release cannot
+      # ship a stale mirror or manifests whose versions disagree.
+      - if: steps.version.outputs.release == 'true'
+        run: npm run check
+
+      - if: steps.version.outputs.release == 'true'
+        run: npm run package:skills
+
+      - if: steps.version.outputs.release == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: ${{ steps.version.outputs.tag }}
+          files: dist/skills/*.zip
+          fail_on_unmatched_files: true
+          body: |
+            **Install for one person:** add the marketplace `tandem-ai/agent-plugins`
+            in your assistant, or add the connector `https://api.usetandem.ai/mcp`.
+
+            **Install for an organization**, no repository needed:
+
+            1. Connector, once, for everyone — your admin console's connector
+               settings, `https://api.usetandem.ai/mcp`. Members sign in to
+               Tandem individually.
+            2. Skills — upload `tandem-setup.zip` and `tandem-sync.zip` below
+               (Claude: Organization settings → Skills → Add), or drop the
+               folders from `tandem-skills.zip` into `.agents/skills/` (Cursor)
+               or `.github/skills/` (Copilot).
+
+            Capabilities come from the connector at run time, so new and changed
+            Tandem tools reach every client with no update on your side. These
+            archives only change when the skills themselves do.
