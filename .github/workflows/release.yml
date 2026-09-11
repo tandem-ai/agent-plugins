@@ -46,9 +46,14 @@ jobs:
             echo "release=true" >> "$GITHUB_OUTPUT"
           fi
 
-      # No install step: the packaging script uses node and zip only, and the
-      # repo has no runtime dependencies. `check` is here so a release cannot
-      # ship a stale mirror or manifests whose versions disagree.
+      # Build first, then check. `variants/` is generated and untracked, so a
+      # fresh clone has none and `check` alone would call them all stale; the
+      # build writes them, and the check then does the job it is here for —
+      # refusing a release whose mirror is stale or whose manifest versions
+      # disagree. No install step: the scripts use node and zip only.
+      - if: steps.version.outputs.release == 'true'
+        run: npm run build
+
       - if: steps.version.outputs.release == 'true'
         run: npm run check
 
