@@ -1,9 +1,7 @@
-// One zip per skill, for a customer's Organization settings → Skills → Add.
+// One zip holding every skill, for a customer to install.
 //
-// That upload is the ONLY route that gives a customer's owner our skills without
-// them mirroring this repository: it takes a zip whose ROOT is the skill folder,
-// carrying SKILL.md and its references. So this script exists to make the thing
-// an admin can actually accept, and nothing else.
+// It is the only route that gives a customer our skills without them mirroring
+// this repository, and one download is what a person hands to an admin.
 //
 // The packaged copy renames the skill — `setup` becomes `tandem-setup` — because
 // a standalone skill lands in the customer's directory under its own bare name,
@@ -32,24 +30,28 @@ mkdirSync(out, { recursive: true });
 const skills = readdirSync(skillsDir).filter((d) =>
   statSync(join(skillsDir, d)).isDirectory(),
 );
-const built = [];
+if (!skills.length) throw new Error("no skills to package");
+
+/* ONE ARCHIVE, holding one folder per skill. Cursor and Copilot read skills
+   from a directory, so this unzips straight into `.agents/skills/` or
+   `.github/skills/`. Claude's organization upload takes one skill folder per
+   file, so an owner unzips this and adds each folder — one download either way,
+   which is what somebody handing this to a customer actually wants. */
+const bundle = join(out, "tandem-skills");
+mkdirSync(bundle, { recursive: true });
 for (const skill of skills) {
   const name = `${prefix}-${skill}`;
-  const stage = join(out, name);
-  cpSync(join(skillsDir, skill), stage, { recursive: true });
-
-  const file = join(stage, "SKILL.md");
+  cpSync(join(skillsDir, skill), join(bundle, name), { recursive: true });
+  const file = join(bundle, name, "SKILL.md");
   const text = readFileSync(file, "utf8");
   const renamed = text.replace(/^name:\s*.+$/m, `name: ${name}`);
   if (renamed === text) throw new Error(`${skill}: no name in frontmatter to rename`);
   writeFileSync(file, renamed);
-
-  // -r for the references directory, and the folder as the zip's root entry.
-  execFileSync("zip", ["-qr", `${name}.zip`, name], { cwd: out });
-  rmSync(stage, { recursive: true, force: true });
-  built.push(`${name}.zip`);
 }
 
-if (!built.length) throw new Error("no skills to package");
+execFileSync("zip", ["-qr", "tandem-skills.zip", "tandem-skills"], { cwd: out });
+rmSync(bundle, { recursive: true, force: true });
 
-console.log(`packaged: ${built.join(", ")} in dist/skills`);
+console.log(
+  `packaged: tandem-skills.zip (${skills.map((s) => `${prefix}-${s}`).join(", ")}) in dist/skills`,
+);
