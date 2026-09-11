@@ -1,0 +1,19 @@
+README.md
+  s_91fe41f5198b8e::t_8d9445d47839d2 137-139
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "22d70ea39461dd118833b78daf9cd061441c1786",
+  "prompts": {},
+  "sessions": {
+    "s_91fe41f5198b8e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a08f66-be8c-7440-97a1-6b3b450a6268",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
