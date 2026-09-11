@@ -1,0 +1,56 @@
+# The skills, as files an administrator can actually accept.
+#
+# A customer's owner installs our skills through Organization settings → Skills →
+# Add, which takes a zip whose root is the skill folder. Cursor and Copilot read
+# them out of a repository path instead. Neither audience is going to clone this
+# repo and run npm, so every tag publishes the archives as release downloads and
+# the install instructions become links.
+name: Release skills
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      # No install step: the packaging script uses node and zip only, and the
+      # repo has no runtime dependencies. `check` is here so a tag cannot ship
+      # a stale mirror or mismatched versions.
+      - run: npm run check
+
+      - run: npm run package:skills
+
+      - name: Publish the archives on the release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/skills/*.zip
+          fail_on_unmatched_files: true
+          body: |
+            **Install for one person:** add the marketplace `tandem-ai/agent-plugins`
+            in your assistant, or add the connector `https://api.usetandem.ai/mcp`.
+
+            **Install for an organization**, no repository needed:
+
+            1. Connector, once, for everyone — your admin console's connector
+               settings, `https://api.usetandem.ai/mcp`. Members sign in to
+               Tandem individually.
+            2. Skills — upload `tandem-setup.zip` and `tandem-sync.zip` below
+               (Claude: Organization settings → Skills → Add), or drop the
+               folders from `tandem-skills.zip` into `.agents/skills/` (Cursor)
+               or `.github/skills/` (Copilot).
+
+            Capabilities come from the connector at run time, so new and changed
+            Tandem tools reach every client with no update on your side. These
+            archives only change when the skills themselves do.

@@ -52,4 +52,29 @@ for (const skill of skills) {
 }
 
 if (!built.length) throw new Error("no skills to package");
+
+/* One more archive, for the platforms that read skills out of a REPOSITORY
+   rather than taking an upload: Cursor from `.agents/skills/`, Copilot from
+   `.github/skills/`. They want the skill folders, not a zip each, so this is
+   the same content shaped for a copy — and because it lands in the customer's
+   own repo, their next pull is what updates it. */
+const bundleDir = join(out, "tandem-skills");
+mkdirSync(bundleDir, { recursive: true });
+for (const skill of skills) {
+  cpSync(join(skillsDir, skill), join(bundleDir, `${prefix}-${skill}`), {
+    recursive: true,
+  });
+  const file = join(bundleDir, `${prefix}-${skill}`, "SKILL.md");
+  writeFileSync(
+    file,
+    readFileSync(file, "utf8").replace(
+      /^name:\s*.+$/m,
+      `name: ${prefix}-${skill}`,
+    ),
+  );
+}
+execFileSync("zip", ["-qr", "tandem-skills.zip", "tandem-skills"], { cwd: out });
+rmSync(bundleDir, { recursive: true, force: true });
+built.push("tandem-skills.zip");
+
 console.log(`packaged: ${built.join(", ")} in dist/skills`);
