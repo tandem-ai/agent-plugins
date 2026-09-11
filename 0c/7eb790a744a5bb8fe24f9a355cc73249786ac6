@@ -1,0 +1,23 @@
+scripts/build.test.mjs
+  s_91fe41f5198b8e::t_34e072dc411186 38-46
+README.md
+  s_91fe41f5198b8e::t_e3e197a50c449b 148
+scripts/build.mjs
+  s_91fe41f5198b8e::t_34e072dc411186 19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "0c7eb790a744a5bb8fe24f9a355cc73249786ac6",
+  "prompts": {},
+  "sessions": {
+    "s_91fe41f5198b8e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a08f66-be8c-7440-97a1-6b3b450a6268",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
