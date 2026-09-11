@@ -76,10 +76,11 @@ jobs:
             1. Connector, once, for everyone — your admin console's connector
                settings, `https://api.usetandem.ai/mcp`. Members sign in to
                Tandem individually.
-            2. Skills — upload `tandem-setup.zip` and `tandem-sync.zip` below
-               (Claude: Organization settings → Skills → Add), or drop the
-               folders from `tandem-skills.zip` into `.agents/skills/` (Cursor)
-               or `.github/skills/` (Copilot).
+            2. Skills — upload `tandem-setup.zip` and `tandem-sync.zip` below.
+               Claude: Organization settings → Skills → Add, one at a time,
+               since that upload takes one skill per file. Cursor and Copilot
+               read skills from a path instead: unzip both into `.agents/skills/`
+               or `.github/skills/`.
 
             Capabilities come from the connector at run time, so new and changed
             Tandem tools reach every client with no update on your side. These
