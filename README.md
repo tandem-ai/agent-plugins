@@ -134,7 +134,9 @@ No hooks, no background behaviour: every write goes through the user's confirmat
 
 ## Branding
 
-`assets/icon.png` is the shared logo for Codex and Cursor, including the generated stage and local variants. Replace this file to update the logo, then run `npm run build`. Codex uses it in light and dark mode.
+`assets/icon.png` is a 512×512 PNG export of the existing [platform favicon SVG](https://github.com/tandem-ai/platform/blob/main/app/public/favicon.svg). It is the shared logo for Codex and Cursor, including the generated stage and local variants. Codex uses it in light and dark mode.
+
+To sync the logo, regenerate `api/src/app/mcp-server/assets/icon.png` in the platform checkout using its [export instructions](https://github.com/tandem-ai/platform/blob/main/api/src/app/mcp-server/assets/README.md), copy the resulting PNG here as `assets/icon.png`, and run `npm run build`. Edit the platform SVG when the logo changes.
 
 Claude plugin manifests have no documented icon field. The asset is available for directory branding, but packaging it does not set the icon of Claude's remote MCP connector.
 
