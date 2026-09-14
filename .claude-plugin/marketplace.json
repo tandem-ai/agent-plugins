@@ -9,7 +9,7 @@
     {
       "name": "tandem",
       "source": "./",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "description": "Tandem MCP connector + skills: /tandem:sync, /tandem:setup.",
       "category": "productivity",
       "tags": [
