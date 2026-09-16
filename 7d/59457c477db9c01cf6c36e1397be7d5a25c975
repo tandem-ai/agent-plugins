@@ -1,0 +1,25 @@
+package.json
+  s_f62409a3683ecb::t_0bec369fa86deb 10-11
+  s_f62409a3683ecb::t_e3b39b7e969fd1 3
+.github/workflows/release.yml
+  s_f62409a3683ecb::t_7d2452559ff402 60
+  s_f62409a3683ecb::t_2b19965e31e469 61-62,68-70,78-87
+scripts/package-plugin.mjs
+  s_f62409a3683ecb::t_10ee909ed1172b 1-43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "7d59457c477db9c01cf6c36e1397be7d5a25c975",
+  "prompts": {},
+  "sessions": {
+    "s_f62409a3683ecb": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a0aa41-ed4d-7282-93a2-46b84d14f313",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
