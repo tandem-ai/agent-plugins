@@ -25,6 +25,7 @@ mkdirSync(bundle, { recursive: true });
 const FILES = [
   "plugin.json",
   "mcp_config.json",
+  ".mcp.json",
   "AGENTS.md",
   "GEMINI.md",
   "gemini-extension.json",
