@@ -1,0 +1,19 @@
+.github/workflows/release.yml
+  s_f62409a3683ecb::t_84260e876546de 65,81,85
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a4dfd9d56ae94c2244b88bd7d32a3527a7f4dcb0",
+  "prompts": {},
+  "sessions": {
+    "s_f62409a3683ecb": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a0aa41-ed4d-7282-93a2-46b84d14f313",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
