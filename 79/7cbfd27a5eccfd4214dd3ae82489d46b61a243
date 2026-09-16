@@ -1,0 +1,31 @@
+.agents/plugins/marketplace.json
+  s_f62409a3683ecb::t_8ab579ba3d5322 7
+.claude-plugin/marketplace.json
+  s_f62409a3683ecb::t_eb2e27f5612519 12
+.claude-plugin/plugin.json
+  s_f62409a3683ecb::t_4eebf695fcec77 4
+.codex-plugin/plugin.json
+  s_f62409a3683ecb::t_2f1d3643a4fd3d 3
+.cursor-plugin/plugin.json
+  s_f62409a3683ecb::t_251d3a0f6b8ece 4
+gemini-extension.json
+  s_f62409a3683ecb::t_34ce71d0c57b9c 3
+package.json
+  s_f62409a3683ecb::t_d3d638da798027 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "797cbfd27a5eccfd4214dd3ae82489d46b61a243",
+  "prompts": {},
+  "sessions": {
+    "s_f62409a3683ecb": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a0aa41-ed4d-7282-93a2-46b84d14f313",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
