@@ -1,0 +1,20 @@
+scripts/package-plugin.mjs
+  s_f62409a3683ecb::t_0e06dacd7eb4a6 1-4,9-10
+  s_f62409a3683ecb::t_82b6b15dacff96 35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "201b1b2d789dee9c1b3f2e5db5f37de079f25548",
+  "prompts": {},
+  "sessions": {
+    "s_f62409a3683ecb": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a0aa41-ed4d-7282-93a2-46b84d14f313",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
