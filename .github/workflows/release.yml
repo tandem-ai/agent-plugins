@@ -58,11 +58,16 @@ jobs:
         run: npm run package:skills
 
       - if: steps.version.outputs.release == 'true'
+        run: npm run package:plugin
+
+      - if: steps.version.outputs.release == 'true'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.tag }}
           name: ${{ steps.version.outputs.tag }}
-          files: dist/skills/*.zip
+          files: |
+            dist/skills/*.zip
+            dist/plugin/tandem-plugin.zip
           fail_on_unmatched_files: true
           body: |
             **Install for one person:** add the marketplace `tandem-ai/agent-plugins`
@@ -70,14 +75,16 @@ jobs:
 
             **Install for an organization**, no repository needed:
 
-            1. Connector, once, for everyone — your admin console's connector
-               settings, `https://api.usetandem.ai/mcp`. Members sign in to
-               Tandem individually.
-            2. Skills — download `tandem-skills.zip` below. Cursor and Copilot
-               read skills from a directory: unzip it into `.agents/skills/` or
-               `.github/skills/`. Claude's Organization settings → Skills → Add
-               takes one skill folder per file, so unzip it and add
-               `tandem-setup` and `tandem-sync` in turn.
+            Download `tandem-plugin.zip` — it contains the full plugin (connector
+            config, skills, assets).
+
+            1. **Claude Desktop:** extract the zip, then add the connector URL
+               `https://api.usetandem.ai/mcp` in Organization → Connectors, and
+               upload the skill folders from `tandem-plugin/skills/` in
+               Organization → Skills.
+            2. **Every other platform:** the connector URL and skills from the zip
+               follow the same per-platform steps; `tandem-skills.zip` contains
+               just the skills if that is all you need.
 
             Capabilities come from the connector at run time, so new and changed
             Tandem tools reach every client with no update on your side. These
