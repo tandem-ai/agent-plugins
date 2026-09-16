@@ -132,11 +132,20 @@ No hooks, no background behaviour: every write goes through the user's confirmat
 
 `sync` writes a markdown document into the project through the `create_document` capability. Tandem stores it as a real project document, indexes it, and the Tandem copilot retrieves it through project document search when someone asks what was decided or delivered. The document format is `skills/sync/references/session-record.md`.
 
+## Branding
+
+`assets/icon.png` is a 512×512 PNG export of the existing [platform favicon SVG](https://github.com/tandem-ai/platform/blob/main/app/public/favicon.svg). It is the shared logo for Codex and Cursor, including the generated stage and local variants. Codex uses it in light and dark mode.
+
+To sync the logo, regenerate `api/src/app/mcp-server/assets/icon.png` in the platform checkout using its [export instructions](https://github.com/tandem-ai/platform/blob/main/api/src/app/mcp-server/assets/README.md), copy the resulting PNG here as `assets/icon.png`, and run `npm run build`. Edit the platform SVG when the logo changes.
+
+Claude plugin manifests have no documented icon field. The asset is available for directory branding, but packaging it does not set the icon of Claude's remote MCP connector.
+
 ## Develop
 
 ```
 npm run build   # copies reference/tandem-mcp.md into each skill, mirrors skills/ to .agents/skills/, checks versions
 npm run check   # verifies the generated files are current (CI)
+npm test        # checks icon validation and generated asset copies
 ```
 
 Edit only `skills/<name>/SKILL.md`, `skills/<name>/references/<own files>.md` and `reference/tandem-mcp.md`, then run the build. Bump the version in every manifest (the build refuses mismatches; a version bump is also what makes `plugin update` re-copy the files). Validate the Claude packaging with `claude plugin validate .` before tagging a release. The manifest must not name `.mcp.json` or `hooks/hooks.json`: Claude Code loads the defaults itself and refuses a duplicate.
