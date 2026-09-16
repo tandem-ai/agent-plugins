@@ -1,0 +1,23 @@
+README.md
+  s_f62409a3683ecb::t_dbc9854fdf8549 135-142,148
+scripts/build.mjs
+  s_f62409a3683ecb::t_1c9b22defa4e2d 5,11-28,105-108,125-128
+scripts/build.test.mjs
+  s_f62409a3683ecb::t_0e1c56930554a2 1-61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "745bab92373b03d0d8b28581877b33b3ed509add",
+  "prompts": {},
+  "sessions": {
+    "s_f62409a3683ecb": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a0aa41-ed4d-7282-93a2-46b84d14f313",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "Gabriel <gabriel@usetandem.ai>"
+    }
+  }
+}
